@@ -4,6 +4,8 @@ import { StatCard } from "@/components/stat-card";
 import { DashboardTeachersTable } from "@/app_modules/Dashboard/ui/DashboardTeachersTable";
 import { DashboardStudentsList } from "@/app_modules/Dashboard/ui/DashboardStudentsList";
 
+export const metadata = { title: "Dashboard" };
+
 export default function Dashboard() {
   return (
     <Heading text="Dashboard" hasAside={false}>
