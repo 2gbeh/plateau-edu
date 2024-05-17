@@ -15,7 +15,7 @@ interface IProps {
   action?: () => void;
 }
 
-export default function Tent({ status, message, variant, action }: IProps) {
+export const Tent = ({ status, message, variant, action }: IProps) => {
   const pathname = usePathname();
   const router = useRouter();
   let messageSlice = message.split("%s");
@@ -38,9 +38,7 @@ export default function Tent({ status, message, variant, action }: IProps) {
         {/*  */}
         <article className="text-gray-700 text-center">
           {messageSlice?.[0]}
-          <b style={{ fontWeight: 500 }}>
-            {pathname}
-          </b>
+          <b style={{ fontWeight: 500 }}>{pathname}</b>
           {messageSlice?.[1]}
         </article>
         {/*  */}
@@ -62,4 +60,4 @@ export default function Tent({ status, message, variant, action }: IProps) {
       </div>
     </main>
   );
-}
+};

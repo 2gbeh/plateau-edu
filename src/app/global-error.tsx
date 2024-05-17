@@ -1,6 +1,6 @@
 "use client";
 
-import Tent from "@/components/tent";
+import {Tent} from "@/components/tent";
 
 interface IGlobalErrorProps {
   error: Error & { digest?: string };

@@ -1,66 +1,37 @@
-import { Button } from "@/components/shadcn/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/shadcn/ui/card";
-import { Checkbox } from "@/components/shadcn/ui/checkbox";
-import { Input } from "@/components/shadcn/ui/input";
-import Container from "@/components/container";
+import { Frame } from "lucide-react";
+import { Heading } from "@/components/heading";
+import { StatCard } from "@/components/stat-card";
+import { DashboardTeachersTable } from "@/app_modules/Dashboard/ui/DashboardTeachersTable";
+import { DashboardStudentsList } from "@/app_modules/Dashboard/ui/DashboardStudentsList";
 
 export default function Dashboard() {
   return (
-    <Container heading="Settings">
-      <div className="grid gap-6">
-        <Card x-chunk="dashboard-04-chunk-1">
-          <CardHeader>
-            <CardTitle>Store Name</CardTitle>
-            <CardDescription>
-              Used to identify your store in the marketplace.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form>
-              <Input placeholder="Store Name" />
-            </form>
-          </CardContent>
-          <CardFooter className="border-t px-6 py-4">
-            <Button>Save</Button>
-          </CardFooter>
-        </Card>
-        <Card x-chunk="dashboard-04-chunk-2">
-          <CardHeader>
-            <CardTitle>Plugins Directory</CardTitle>
-            <CardDescription>
-              The directory within your project, in which your plugins are
-              located.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form className="flex flex-col gap-4">
-              <Input
-                placeholder="Project Name"
-                defaultValue="/content/plugins"
-              />
-              <div className="flex items-center space-x-2">
-                <Checkbox id="include" defaultChecked />
-                <label
-                  htmlFor="include"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  Allow administrators to change the directory.
-                </label>
-              </div>
-            </form>
-          </CardContent>
-          <CardFooter className="border-t px-6 py-4">
-            <Button>Save</Button>
-          </CardFooter>
-        </Card>
+    <Heading text="Dashboard" hasAside={false}>
+      <div className="grid-1-2 gap-5">
+        <StatCard
+          label="Total Teachers"
+          value="1,509"
+          summary="+25% from last month"
+        >
+          <Frame className="dim-4" />
+        </StatCard>
+        <StatCard
+          label="Total Students"
+          value="1,992"
+          summary="+75% from last month"
+        >
+          <Frame className="dim-4" />
+        </StatCard>
       </div>
-    </Container>
+      {/*  */}
+      <div className="grid-1-6 gap-10 mt-5">
+        <div className="col-span-4">
+          <DashboardTeachersTable />
+        </div>
+        <div className="col-span-2">
+          <DashboardStudentsList />
+        </div>
+      </div>
+    </Heading>
   );
 }
