@@ -31,7 +31,7 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
         {h1 && <CardTitle>{h1}</CardTitle>}
         {p && <CardDescription>{p}</CardDescription>}
       </CardHeader>
-      
+
       {/* BODY */}
       <CardContent>
         <Table>
@@ -68,7 +68,7 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
           <TableBody>{children}</TableBody>
         </Table>
       </CardContent>
-      
+
       {/* FOOTER */}
       {tfoot && (
         <CardFooter>

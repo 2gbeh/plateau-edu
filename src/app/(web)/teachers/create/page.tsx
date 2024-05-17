@@ -46,8 +46,9 @@ export default function TeachersCreate() {
             />
             <FormInput
               label="Teacher Number?Staff ID*"
-              type="number"
+              type="search"
               name="teacher_number"
+              placeholder="Ex. PLA/EDU/015"
               required
             />
           </FormInputGroup>
@@ -65,7 +66,11 @@ export default function TeachersCreate() {
               placeholder="Family Name"
               required
             />
-            <FormInput label="Other Names*" name="other_names" required />
+            <FormInput
+              label="Other Names*"
+              name="other_names"
+              required
+            />
           </FormInputGroup>
           {/*  */}
           <FormInputGroup>
@@ -75,7 +80,7 @@ export default function TeachersCreate() {
               name="date_of_birth"
               required
             />
-            <FormInput
+            {/* <FormInput
               label="Email Address"
               type="email"
               name="email"
@@ -86,7 +91,7 @@ export default function TeachersCreate() {
               type="tel"
               name="phone"
               placeholder="Ex. (123) 456-7890"
-            />
+            /> */}
             <FormInputAmount label="Salary" names={["currency", "salary"]} />
           </FormInputGroup>
         </fieldset>
