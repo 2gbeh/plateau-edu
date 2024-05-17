@@ -26,6 +26,20 @@ import {
   TableRow,
 } from "@/components/shadcn/ui/table";
 
+/*
+●  National ID number - required field
+● Teacher Number - required
+
+● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
+● Surname - required
+● Other Names - required
+
+● Date of Birth - required - their age may not be less than 21
+● Salary - optional 
+● Email - 
+● Phone No. - 
+*/
+
 export const metadata = { title: "All Teachers" };
 
 export default function Teachers() {
