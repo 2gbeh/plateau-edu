@@ -10,12 +10,14 @@ export default Object.freeze({
   reset_password: "/reset-password",
   verify_email: "/verify-email",
   //
-  dashboard: "/dashboard",
-  profile: "/dashboard/profile",
-  settings: "/dashboard/settings",
+  dashboard: "/",
+  profile: "/profile",
+  settings: "/settings",
   //
-  expense_preview: "/dashboard/expense/%s/preview",
-  expense_create: "/dashboard/expense/create",
-  expense_create_milelage: "/dashboard/expense/create/milelage",
-  advance_create: "/dashboard/advance/create",
+  teachers: "/teachers",
+  teacher: "/teachers/%s",
+  teachers_create: "/teachers/create",
+  students: "/students",
+  student: "/students/%s",
+  students_create: "/students/create",
 });

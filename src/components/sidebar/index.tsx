@@ -1,32 +1,25 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Home, Settings, Frame } from "lucide-react";
+import clsx from "clsx";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/shadcn/ui/tooltip";
-//
-import APP from "@/constants/APP";
-import PATH from "@/constants/PATH";
-import { styles, menu } from "./sidebar.util";
+interface IProps {
+  menu: { path: string; text: string }[];
+}
 
-export const Sidebar = () => {
+export const Sidebar = ({ menu }: IProps) => {
   return (
     <nav
       className="grid gap-4 text-sm text-muted-foreground"
       x-chunk="dashboard-04-chunk-0"
     >
-      <Link href="#" className="font-semibold text-primary">
-        General
-      </Link>
-      <Link href="#">Security</Link>
-      <Link href="#">Integrations</Link>
-      <Link href="#">Support</Link>
-      <Link href="#">Organizations</Link>
-      <Link href="#">Advanced</Link>
+      {menu.map((e, i) => (
+        <Link
+          key={i}
+          href={e.path}
+          className={clsx(i < 1 && "font-semibold text-primary")}
+        >
+          {e.text}
+        </Link>
+      ))}
     </nav>
   );
 };

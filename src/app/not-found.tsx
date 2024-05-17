@@ -1,4 +1,4 @@
-import Tent from "@/components/tent";
+import {Tent} from "@/components/tent";
 
 export default function NotFound() {
   return (

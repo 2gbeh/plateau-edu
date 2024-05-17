@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "@/components/header";
 
-export default function AuthLayout({
+export default function WebLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
