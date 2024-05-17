@@ -8,7 +8,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
 
 export const FormTextarea = ({ label, name, ...rest }: IProps) => {
   return (
-    <div className="flex flex-col">
+    <div className={formStyles.input_group}>
       <FormLabel text={label} name={name} />
       {/*  */}
       <textarea

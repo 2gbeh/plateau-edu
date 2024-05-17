@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ClipboardList } from "lucide-react";
 import { FormLabel } from "./form-label";
 import { formStyles } from "../form.util";
-import clsx from "clsx";
 
 interface IProps {
   label: string;
@@ -21,7 +20,7 @@ export const FormInputAmount = ({
   let [selectPlaceholder, inputPlaceholder] = placeholders;
   //
   return (
-    <div className="flex flex-col">
+    <div className={formStyles.input_group}>
       <div className="flex-center-between">
         <FormLabel text={label} name={inputName} />
         {itemize && (

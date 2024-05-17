@@ -21,7 +21,7 @@ export const FormSelect = ({
   ...rest
 }: IProps) => {
   return (
-    <div className="flex flex-col">
+    <div className={formStyles.input_group}>
       <FormLabel text={label} name={name} />
       {/*  */}
       <select name={name} id={name} {...rest} className={formStyles.input}>
