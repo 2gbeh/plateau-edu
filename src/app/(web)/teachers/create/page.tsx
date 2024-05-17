@@ -35,7 +35,7 @@ import {
 export default function TeachersCreate() {
   return (
     <form>
-      <FormCardWrapper h1="Add Teacher" p="Fill in biodata information below">
+      <FormCardWrapper h1="Add Teacher" p="Teacher biodata caption form">
         <fieldset disabled={false} className="flex flex-col gap-4">
           <FormInputGroup>
             <FormInput

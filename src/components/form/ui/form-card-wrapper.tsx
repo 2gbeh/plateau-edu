@@ -12,7 +12,7 @@ import {
 interface IProps {
   children: React.ReactNode;
   h1?: string;
-  p?: string;
+  p?: string;  
 }
 
 export const FormCardWrapper = ({ children, h1, p }: IProps) => {
@@ -23,6 +23,8 @@ export const FormCardWrapper = ({ children, h1, p }: IProps) => {
         {p && <CardDescription>{p}</CardDescription>}
       </CardHeader>
       <CardContent>{children}</CardContent>
+
+      {/* FOOTER */}
       <CardFooter className="border-t px-6 py-4 flex-center-end gap-4">
         <Button type="reset" variant="outline">
           <CircleSlash className="dim-4 mr-2" />

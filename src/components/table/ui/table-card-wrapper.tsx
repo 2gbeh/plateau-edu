@@ -1,5 +1,4 @@
-import { CircleSlash, Save } from "lucide-react";
-import { Button } from "@/components/shadcn/ui/button";
+import clsx from "clsx";
 import {
   Card,
   CardContent,
@@ -8,31 +7,74 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcn/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/shadcn/ui/table";
 
 interface IProps {
   children: React.ReactNode;
   h1?: string;
   p?: string;
+  thead?: string[];
+  tfoot?: React.ReactNode;
 }
 
-export const TableCardWrapper = ({ children, h1, p }: IProps) => {
+export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
   return (
     <>
       <CardHeader>
         {h1 && <CardTitle>{h1}</CardTitle>}
         {p && <CardDescription>{p}</CardDescription>}
       </CardHeader>
-      <CardContent>{children}</CardContent>
-      <CardFooter className="border-t px-6 py-4 flex-center-end gap-4">
-        <Button type="reset" variant="outline">
-          <CircleSlash className="dim-4 mr-2" />
-          Reset
-        </Button>
-        <Button>
-          <Save className="dim-4 mr-2" />
-          Save
-        </Button>
-      </CardFooter>
+      
+      {/* BODY */}
+      <CardContent>
+        <Table>
+          {thead && (
+            <TableHeader>
+              <TableRow>
+                {thead.map((e, i) => {
+                  let [text, isScreenReader, isRequired] = [
+                    e,
+                    e.startsWith("#"),
+                    e.endsWith("*"),
+                  ];
+                  text = isScreenReader ? text.slice(1) : text;
+                  text = isRequired ? text.slice(0, -1) : text;
+                  //
+                  return (
+                    <TableHead
+                      key={i}
+                      className={clsx({
+                        "hidden md:table-cell": !isRequired,
+                      })}
+                    >
+                      {isScreenReader ? (
+                        <span className="sr-only">{text}</span>
+                      ) : (
+                        text
+                      )}
+                    </TableHead>
+                  );
+                })}
+              </TableRow>
+            </TableHeader>
+          )}
+          <TableBody>{children}</TableBody>
+        </Table>
+      </CardContent>
+      
+      {/* FOOTER */}
+      {tfoot && (
+        <CardFooter>
+          <div className="text-xs text-muted-foreground">{tfoot}</div>
+        </CardFooter>
+      )}
     </>
   );
 };
