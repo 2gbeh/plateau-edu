@@ -30,6 +30,8 @@ import PATH from "@/constants/PATH";
 import { Sidebar } from "@/components/sidebar";
 import { Heading } from "@/components/heading";
 
+export const metadata = { title: "All Teachers" };
+
 export default function Teachers() {
   return (
     <Heading text="Manage Teachers">
