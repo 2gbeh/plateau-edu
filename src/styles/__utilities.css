@@ -1,0 +1,35 @@
+@tailwind utilities;
+
+@layer utilities {
+  .offwhite {
+    @apply bg-[#fafafa]
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-brand to-brand_dark
+  }
+
+  .bg-gradient-alt {
+    @apply bg-gradient-to-r from-fuchsia-600 to-brand
+  }
+
+  .dim-4 {
+    @apply w-4 h-4
+  }
+
+  .dim-5 {
+    @apply w-5 h-5
+  }
+
+  .dim-6 {
+    @apply w-6 h-6
+  }
+
+  .dim-8 {
+    @apply w-8 h-8
+  }
+
+  .dim-10 {
+    @apply w-10 h-10
+  }
+}

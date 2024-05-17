@@ -1,0 +1,31 @@
+@tailwind components;
+
+@layer components {
+  .root-container {
+    @apply bg-white shadow-lg py-5 rounded-xl
+  }
+
+  .root-wrapper {
+    @apply p-8
+  }
+
+  .root-content {
+    @apply w-full sm:w-[480px]
+  }
+
+  .root-content-center {
+    @apply w-full sm:w-[480px] mx-auto
+  }
+
+  .root-content-lg {
+    @apply w-full sm:w-[640px]
+  }
+
+  .root-content-center-lg {
+    @apply w-full sm:w-[640px] mx-auto
+  }
+
+  .root-ribbon {
+    @apply bg-white border-b-2 px-8 pt-0 pb-5 flex items-end justify-between
+  }
+}
