@@ -6,12 +6,12 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
 interface IProps {
-  menu: { path: string; text: string }[];
+  menu: { path: string; text: string; icon?: React.ReactNode }[];
 }
 
 const Sidebar = ({ menu }: IProps) => {
   const pathname = usePathname();
-  // 
+  //
   return (
     <nav
       className="grid gap-4 text-sm text-muted-foreground"
@@ -21,9 +21,13 @@ const Sidebar = ({ menu }: IProps) => {
         <Link
           key={i}
           href={e.path}
-          className={clsx(pathname == e.path && "font-semibold text-primary")}
+          className={clsx(
+            "flex-center",
+            pathname == e.path && "font-semibold text-primary"
+          )}
         >
-          {e.text}
+          <span>{e.icon}</span>
+          <span>{e.text}</span>
         </Link>
       ))}
     </nav>

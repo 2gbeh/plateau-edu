@@ -1,6 +1,5 @@
 import { FormLabel } from "./form-label";
 import { formStyles } from "../form.util";
-import clsx from "clsx";
 
 interface IProps {
   label: string;
@@ -16,7 +15,7 @@ export const FormInputUnit = ({
   unit,
 }: IProps) => {
   return (
-    <div className="flex flex-col">
+    <div className={formStyles.input_group}>
       <div className="flex-center-between">
         <FormLabel text={label} name={name} />
       </div>

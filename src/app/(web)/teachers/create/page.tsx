@@ -1,3 +1,14 @@
+export const metadata = { title: "Add Teacher" };
+
+import { FormCardWrapper } from "@/components/form/ui/form-card-wrapper";
+import { FormFieldset } from "@/components/form/ui/form-fieldset";
+import { FormInputGroup } from "@/components/form/ui/form-input-group";
+import { FormInput } from "@/components/form/ui/form-input";
+import { FormInputAmount } from "@/components/form/ui/form-input-amout";
+import { FormSelect } from "@/components/form/ui/form-select";
+import { ButtonVariants } from "@/components/button-variants";
+
+import { CircleSlash, Save } from "lucide-react";
 import { Button } from "@/components/shadcn/ui/button";
 import {
   Card,
@@ -7,155 +18,79 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcn/ui/card";
-import { Checkbox } from "@/components/shadcn/ui/checkbox";
-import { Input } from "@/components/shadcn/ui/input";
-import { Heading } from "@/components/heading";
-import Sidebar from "@/components/sidebar";
-import PATH from "@/constants/PATH";
-import { Bird, Rabbit, Turtle } from "lucide-react";
+/*
+●  National ID number - required field
+● Teacher Number - required
 
-import { Label } from "@/components/shadcn/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/shadcn/ui/select";
-import { Textarea } from "@/components/shadcn/ui/textarea";
+● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
+● Surname - required
+● Other Names - required
 
-export const metadata = { title: "Add Teacher" };
+● Date of Birth - required - their age may not be less than 21
+● Salary - optional 
+● Email - 
+● Phone No. - 
+*/
 
 export default function TeachersCreate() {
   return (
-    <Heading text="Manage Teachers">
-      <Sidebar
-        menu={[
-          { path: PATH.teachers_create, text: "Add Teacher" },
-          { path: PATH.teachers, text: "All Teachers" },
-        ]}
-      />
-      {/*  */}
-      <div className="grid gap-6">
-        <Card x-chunk="dashboard-04-chunk-1">
-          <CardHeader>
-            <CardTitle>Store Name</CardTitle>
-            <CardDescription>
-              Used to identify your store in the marketplace.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form className="">
-              <fieldset className="grid gap-6" disabled={false}>
-                <div className="grid gap-3">
-                  <Label htmlFor="model">Model</Label>
-                  <Select>
-                    <SelectTrigger
-                      id="model"
-                      className="items-start [&_[data-description]]:hidden"
-                    >
-                      <SelectValue placeholder="Select a model" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="genesis">
-                        <div className="flex items-start gap-3 text-muted-foreground">
-                          <Rabbit className="size-5" />
-                          <div className="grid gap-0.5">
-                            <p>
-                              Neural{" "}
-                              <span className="font-medium text-foreground">
-                                Genesis
-                              </span>
-                            </p>
-                            <p className="text-xs" data-description>
-                              Our fastest model for general use cases.
-                            </p>
-                          </div>
-                        </div>
-                      </SelectItem>
-                      <SelectItem value="explorer">
-                        <div className="flex items-start gap-3 text-muted-foreground">
-                          <Bird className="size-5" />
-                          <div className="grid gap-0.5">
-                            <p>
-                              Neural{" "}
-                              <span className="font-medium text-foreground">
-                                Explorer
-                              </span>
-                            </p>
-                            <p className="text-xs" data-description>
-                              Performance and speed for efficiency.
-                            </p>
-                          </div>
-                        </div>
-                      </SelectItem>
-                      <SelectItem value="quantum">
-                        <div className="flex items-start gap-3 text-muted-foreground">
-                          <Turtle className="size-5" />
-                          <div className="grid gap-0.5">
-                            <p>
-                              Neural{" "}
-                              <span className="font-medium text-foreground">
-                                Quantum
-                              </span>
-                            </p>
-                            <p className="text-xs" data-description>
-                              The most powerful model for complex computations.
-                            </p>
-                          </div>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="grid gap-3">
-                  <Label htmlFor="temperature">Temperature</Label>
-                  <Input id="temperature" type="number" placeholder="0.4" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-3">
-                    <Label htmlFor="top-p">Top P</Label>
-                    <Input id="top-p" type="number" placeholder="0.7" />
-                  </div>
-                  <div className="grid gap-3">
-                    <Label htmlFor="top-k">Top K</Label>
-                    <Input id="top-k" type="number" placeholder="0.0" />
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset className="grid gap-6 rounded-lg border p-4">
-                <legend className="-ml-1 px-1 text-sm font-medium">
-                  Messages
-                </legend>
-                <div className="grid gap-3">
-                  <Label htmlFor="role">Role</Label>
-                  <Select defaultValue="system">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a role" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="system">System</SelectItem>
-                      <SelectItem value="user">User</SelectItem>
-                      <SelectItem value="assistant">Assistant</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="grid gap-3">
-                  <Label htmlFor="content">Content</Label>
-                  <Textarea
-                    id="content"
-                    placeholder="You are a..."
-                    className="min-h-[9.5rem]"
-                  />
-                </div>
-              </fieldset>
-            </form>
-          </CardContent>
-          <CardFooter className="border-t px-6 py-4">
-            <Button>Save</Button>
-          </CardFooter>
-        </Card>
-      </div>
-    </Heading>
+    <form>
+      <FormCardWrapper h1="Add Teacher" p="Fill in biodata information below">
+        <fieldset disabled={false} className="flex flex-col gap-4">
+          <FormInputGroup>
+            <FormInput
+              label="National ID*"
+              type="number"
+              name="national_id"
+              required
+            />
+            <FormInput
+              label="Teacher Number*"
+              type="number"
+              name="teacher_number"
+              required
+            />
+          </FormInputGroup>
+          {/*  */}
+          <FormInputGroup>
+            <FormSelect
+              label="Title*"
+              name="title"
+              placeholder="Mr./Mrs./Miss"
+              required
+            />
+            <FormInput
+              label="Surname*"
+              name="surname"
+              placeholder="Family Name"
+              required
+            />
+            <FormInput label="Other Names*" name="other_names" required />
+          </FormInputGroup>
+          {/*  */}
+          <FormInputGroup>
+            <FormInput
+              label="Date of Birth*"
+              type="date"
+              name="date_of_birth"
+              required
+            />
+            <FormInput
+              label="Email Address"
+              type="email"
+              name="email"
+              placeholder="Ex. example@domain.com"
+            />
+            <FormInput
+              label="Phone Number"
+              type="tel"
+              name="phone"
+              placeholder="Ex. (123) 456-7890"
+            />
+            <FormInputAmount label="Salary" names={["currency", "salary"]} />
+          </FormInputGroup>
+        </fieldset>
+      </FormCardWrapper>
+    </form>
   );
 }
