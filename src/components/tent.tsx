@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { getStatusText } from "@/constants/HTTP_STATUS_CODE";
+import { Figure } from "./figure";
+import APP from "@/constants/APP";
 
 interface IProps {
   status: number;
@@ -23,14 +25,7 @@ export const Tent = ({ status, message, variant, action }: IProps) => {
   return (
     <main className="offwhite flex-centered">
       <div className="flex-col-center gap-4 px-5 w-full sm:w-[640px] mx-auto">
-        <Image
-          src="/icon.png"
-          alt=""
-          className="dark:invert"
-          width={80}
-          height={80}
-          priority
-        />
+        <Figure src="/icon.png" dim={[256, 256]} fit="64px" alt={APP.name} />
         {/*  */}
         <h1 className="capitalize">
           <b>{status}</b> | {getStatusText(status)}

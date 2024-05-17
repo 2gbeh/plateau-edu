@@ -10,7 +10,7 @@ import {
 import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { Input } from "@/components/shadcn/ui/input";
 import { Heading } from "@/components/heading";
-import { Sidebar } from "@/components/sidebar";
+import Sidebar from "@/components/sidebar";
 import PATH from "@/constants/PATH";
 import { Bird, Rabbit, Turtle } from "lucide-react";
 
@@ -46,10 +46,7 @@ export default function TeachersCreate() {
           </CardHeader>
           <CardContent>
             <form className="">
-              <fieldset className="grid gap-6 rounded-lg border p-4">
-                <legend className="-ml-1 px-1 text-sm font-medium">
-                  Settings
-                </legend>
+              <fieldset className="grid gap-6" disabled={false}>
                 <div className="grid gap-3">
                   <Label htmlFor="model">Model</Label>
                   <Select>

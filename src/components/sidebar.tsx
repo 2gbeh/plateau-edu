@@ -1,11 +1,17 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 interface IProps {
   menu: { path: string; text: string }[];
 }
 
-export const Sidebar = ({ menu }: IProps) => {
+const Sidebar = ({ menu }: IProps) => {
+  const pathname = usePathname();
+  // 
   return (
     <nav
       className="grid gap-4 text-sm text-muted-foreground"
@@ -15,7 +21,7 @@ export const Sidebar = ({ menu }: IProps) => {
         <Link
           key={i}
           href={e.path}
-          className={clsx(i < 1 && "font-semibold text-primary")}
+          className={clsx(pathname == e.path && "font-semibold text-primary")}
         >
           {e.text}
         </Link>
@@ -23,3 +29,5 @@ export const Sidebar = ({ menu }: IProps) => {
     </nav>
   );
 };
+
+export default React.memo(Sidebar);

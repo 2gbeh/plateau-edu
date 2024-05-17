@@ -1,11 +1,17 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { Figure } from "../figure";
+import { usePathname } from "next/navigation";
 //
 import APP from "@/constants/APP";
 import { menu } from "./navbar.util";
 
-export const Navbar = () => {
+const Navbar = () => {
+  const pathname = usePathname();
+  //
   return (
     <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
       <Link
@@ -21,8 +27,11 @@ export const Navbar = () => {
           href={e.path}
           className={clsx(
             "transition-colors hover:text-foreground text-nowrap",
-            i > 0 && "text-muted-foreground",
-            i < 1 && "text-foreground"
+            pathname == "/"
+              ? "text-foreground"
+              : pathname == e.path
+              ? "text-foreground"
+              : "text-muted-foreground"
           )}
         >
           {e.text}
@@ -31,3 +40,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default React.memo(Navbar);

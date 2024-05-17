@@ -27,8 +27,10 @@ import {
   TableRow,
 } from "@/components/shadcn/ui/table";
 import PATH from "@/constants/PATH";
-import { Sidebar } from "@/components/sidebar";
+import Sidebar from "@/components/sidebar";
 import { Heading } from "@/components/heading";
+
+export const metadata = { title: "All Teachers" };
 
 export default function Teachers() {
   return (
@@ -75,9 +77,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
@@ -116,9 +118,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
@@ -157,9 +159,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
@@ -198,9 +200,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
@@ -239,9 +241,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
@@ -280,9 +282,9 @@ export default function Teachers() {
                     <Image
                       alt="Product image"
                       className="aspect-square rounded-md object-cover"
-                      height="64"
-                      src="/placeholder.svg"
-                      width="64"
+                      height="32"
+                      src="/images/avatar-flat.png"
+                      width="32"
                     />
                   </TableCell>
                   <TableCell className="font-medium">
