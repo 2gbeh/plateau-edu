@@ -12,7 +12,7 @@ export default function TeachersLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Heading text="Manage Teachers" icon={<ContactRound className="dim-8" />}>
+    <Heading text="Manage Teachers" icon={<ContactRound className="sm:dim-8 dim-5" />}>
       <Sidebar
         menu={[
           {
@@ -22,7 +22,7 @@ export default function TeachersLayout({
           },
           {
             path: PATH.teachers,
-            text: "All Teachers",
+            text: "View Teachers",
             icon: <ListTodo className="dim-4 mr-2" />,
           },
         ]}
