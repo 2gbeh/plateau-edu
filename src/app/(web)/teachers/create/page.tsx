@@ -45,7 +45,7 @@ export default function TeachersCreate() {
               required
             />
             <FormInput
-              label="Teacher Number*"
+              label="Teacher Number?Staff ID*"
               type="number"
               name="teacher_number"
               required

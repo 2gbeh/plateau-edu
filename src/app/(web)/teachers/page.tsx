@@ -28,17 +28,17 @@ import {
 import { TableCardWrapper } from "@/components/table/ui/table-card-wrapper";
 
 /*
-●  National ID number - required field
-● Teacher Number - required
-
 ● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
-● Surname - required
-● Other Names - required
+Surname - required
+Other Names - required
+National ID number - required field
 
 ● Date of Birth - required - their age may not be less than 21
-● Salary - optional 
-● Email - 
-● Phone No. - 
+● Teacher Number - required
+
+Salary - optional 
+Email - 
+Phone No. - 
 */
 
 export const metadata = { title: "View Teachers" };
@@ -49,12 +49,12 @@ export default function Teachers() {
       h1="View Teachers"
       p="List of registred teachers"
       thead={[
-        "#Image",
-        "Name*",
-        "Status*",
-        "Price*",
-        "Total Sales",
-        "Created At",
+        "#Passport",
+        "Teacher Name*",
+        "Date of Birth*",
+        "Teacher Number*",
+        "Salary",
+        "Date Created",
         "#Action*",
       ]}
       tfoot={
@@ -73,7 +73,7 @@ export default function Teachers() {
             width="32"
           />
         </TableCell>
-        <TableCell className="font-medium">Laser Lemonade Machine</TableCell>
+        <TableCell className="font-medium">Mr. Laser Lemonade <br/>1</TableCell>
         <TableCell>
           <Badge variant="outline">Draft</Badge>
         </TableCell>
