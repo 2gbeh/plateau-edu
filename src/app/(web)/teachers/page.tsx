@@ -1,57 +1,24 @@
-"use client"
 import Image from "next/image";
-import { MoreHorizontal } from "lucide-react";
 import { Badge } from "@/components/shadcn/ui/badge";
-import { Button } from "@/components/shadcn/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/shadcn/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/shadcn/ui/table";
+import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { TableCardWrapper } from "@/components/table/ui/table-card-wrapper";
+import { TableCellAction } from "@/components/table/ui/table-cell-action";
+//
 import fakeTeachers from "@/data/fake-teachers";
-import UseClient from "@/components/use-client";
-import fakerHelper from "@/lib/faker-js/main";
 
-/*
-● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
-Surname - required
-Other Names - required
-Teacher Number - required
-
-  
-● Date of Birth - required - their age may not be less than 21
-● National ID number - required field
-
-Salary - optional
-*/
-
-// export const metadata = { title: "View Teachers" };
+export const metadata = { title: "View Teachers" };
 
 export default function Teachers() {
-  fakerHelper.log(fakerHelper.getCollection);
-
   return (
     <TableCardWrapper
       h1="View Teachers"
       p="List of registred teachers"
       thead={[
         "#Passport",
-        "Teacher Name/ID*",
+        "Teacher Name/No.*",
         "Date of Birth*",
         "National ID*",
         "Salary",
-        "Date Created",
         "#Action*",
       ]}
       tfoot={
@@ -65,40 +32,31 @@ export default function Teachers() {
           <TableRow>
             <TableCell className="hidden sm:table-cell">
               <Image
-                alt="Product image"
+                src={e.avatar}
+                width={32}
+                height={32}
+                alt="Avatar"
                 className="aspect-square rounded-md object-cover"
-                height="32"
-                src="/images/avatar-flat.png"
-                width="32"
               />
-              <UseClient />
             </TableCell>
             <TableCell className="font-medium">
-              Mr. Laser Lemonade <br />1
+              {e.title}
+              {e.surname}
+              {e.other_names}
+              <br />
+              <Badge variant="secondary" className="mt-1 text-xs_">
+                EDU/STA/{e.teacher_number}
+              </Badge>
             </TableCell>
             <TableCell>
-              <Badge variant={i < 1 ? "secondary" : "outline"}>Active</Badge>
+              {e.date_of_birth}
+              <Badge variant={i < 1 ? "secondary" : "outline"} className="ml-2">
+                {new Date().getFullYear() - Number(e.date_of_birth.slice(0, 4))}
+              </Badge>
             </TableCell>
-            <TableCell>$499.99</TableCell>
-            <TableCell className="hidden md:table-cell">25</TableCell>
-            <TableCell className="hidden md:table-cell">
-              2023-07-12 10:42 AM
-            </TableCell>
-            <TableCell>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button aria-haspopup="true" size="icon" variant="ghost">
-                    <MoreHorizontal className="h-4 w-4" />
-                    <span className="sr-only">Toggle menu</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                  <DropdownMenuItem>Edit</DropdownMenuItem>
-                  <DropdownMenuItem>Delete</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
+            <TableCell>{e.national_id}</TableCell>
+            <TableCell className="hidden md:table-cell">${e.salary}</TableCell>
+            <TableCellAction id={e.id} />
           </TableRow>
         )),
       ]}

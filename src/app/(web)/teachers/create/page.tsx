@@ -1,36 +1,11 @@
-export const metadata = { title: "Add Teacher" };
-
 import { FormCardWrapper } from "@/components/form/ui/form-card-wrapper";
 import { FormFieldset } from "@/components/form/ui/form-fieldset";
 import { FormInputGroup } from "@/components/form/ui/form-input-group";
 import { FormInput } from "@/components/form/ui/form-input";
 import { FormInputAmount } from "@/components/form/ui/form-input-amout";
 import { FormSelect } from "@/components/form/ui/form-select";
-import { ButtonVariants } from "@/components/button-variants";
 
-import { CircleSlash, Save } from "lucide-react";
-import { Button } from "@/components/shadcn/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/shadcn/ui/card";
-/*
-●  National ID number - required field
-● Teacher Number - required
-
-● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
-● Surname - required
-● Other Names - required
-
-● Date of Birth - required - their age may not be less than 21
-● Salary - optional 
-● Email - 
-● Phone No. - 
-*/
+export const metadata = { title: "Add Teacher" };
 
 export default function TeachersCreate() {
   return (
@@ -48,7 +23,7 @@ export default function TeachersCreate() {
               label="Teacher Number?Staff ID*"
               type="search"
               name="teacher_number"
-              placeholder="Ex. PLA/EDU/015"
+              placeholder="Ex. EDU/STA/015"
               required
             />
           </FormInputGroup>
