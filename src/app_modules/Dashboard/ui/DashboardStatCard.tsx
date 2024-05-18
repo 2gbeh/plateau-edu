@@ -7,12 +7,16 @@ import {
 } from "@/components/shadcn/ui/card";
 //
 import { $ } from "@/utils";
-import fakeTeachers from "@/data/fake-teachers";
-import fakeStudents from "@/data/fake-students";
 import { TeachersService } from "@/server/api/teachers/teachers.service";
 import { StudentsService } from "@/server/api/students/students.service";
+import { ITeacher } from "@/server/api/teachers/teachers.dto";
+import { IStudent } from "@/server/api/students/students.dto";
 
-export const DashboardStatCard = () => {
+interface IProps {
+  data: [teachers: ITeacher[], students: IStudent[]];
+}
+
+export const DashboardStatCard = ({ data: [teachers, students] }: IProps) => {
   return (
     <div className="grid-1-2 gap-8">
       <Card>
@@ -21,9 +25,9 @@ export const DashboardStatCard = () => {
           <ContactRound className="dim-5" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{$(fakeTeachers.length)}</div>
+          <div className="text-2xl font-bold">{$(teachers.length)}</div>
           <p className="text-sm text-muted-foreground">
-            Teacher average salary: $ {TeachersService.avgSalary(fakeTeachers)}
+            Teacher average salary: $ {TeachersService.avgSalary(teachers)}
           </p>
         </CardContent>
       </Card>
@@ -34,9 +38,9 @@ export const DashboardStatCard = () => {
           <Users className="dim-5" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{$(fakeStudents.length)}</div>
+          <div className="text-2xl font-bold">{$(students.length)}</div>
           <p className="text-sm text-muted-foreground">
-            Student average age: {StudentsService.avgAge(fakeStudents)}
+            Student average age: {StudentsService.avgAge(students)}
           </p>
         </CardContent>
       </Card>
