@@ -130,12 +130,26 @@ export const isset = (...args: TArgs) => {
   }
 };
 
-export const abbr = (str: string) =>
-  str
-    .split(" ")
-    .map((e) => e[0])
-    .join("")
-    .slice(0, 2);
+export const age = (dt: string | Date) =>
+  new Date().getFullYear() - new Date(dt).getFullYear();
+
+// TE | E.O.
+export const abbr = (str: string, dotted = false) =>
+  dotted
+    ? str
+        .split(" ")
+        .map((e) => e[0])
+        .join(".")
+        .slice(0, 3) + "."
+    : str
+        .split(" ")
+        .map((e) => e[0])
+        .join("")
+        .slice(0, 2);
+
+// J. K. Rowlings
+export const authonym = (...args: TArgs) =>
+  `${abbr(args[1] as string, true).replaceAll(".", ". ")} ${args[0] as string}`;
 
 export const sex = (x?: T, fallback: unknown = null) => {
   if (x) {

@@ -1,10 +1,12 @@
-import Image from "next/image";
 import { Badge } from "@/components/shadcn/ui/badge";
 import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { TableCardWrapper } from "@/components/table/ui/table-card-wrapper";
+import { TableCellAvatar } from "@/components/table/ui/table-cell-avatar";
+import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
 import { TableCellAction } from "@/components/table/ui/table-cell-action";
 //
 import fakeTeachers from "@/data/fake-teachers";
+import { TeacherPipe } from "@/server/api/v1/teachers/teacher.pipe";
 
 export const metadata = { title: "View Teachers" };
 
@@ -28,37 +30,28 @@ export default function Teachers() {
       }
     >
       {[
-        fakeTeachers.map((e, i) => (
-          <TableRow>
-            <TableCell className="hidden sm:table-cell">
-              <Image
-                src={e.avatar}
-                width={32}
-                height={32}
-                alt="Avatar"
-                className="aspect-square rounded-md object-cover"
-              />
-            </TableCell>
-            <TableCell className="font-medium">
-              {e.title}
-              {e.surname}
-              {e.other_names}
-              <br />
-              <Badge variant="secondary" className="mt-1 text-xs_">
-                EDU/STA/{e.teacher_number}
-              </Badge>
-            </TableCell>
-            <TableCell>
-              {e.date_of_birth}
-              <Badge variant={i < 1 ? "secondary" : "outline"} className="ml-2">
-                {new Date().getFullYear() - Number(e.date_of_birth.slice(0, 4))}
-              </Badge>
-            </TableCell>
-            <TableCell>{e.national_id}</TableCell>
-            <TableCell className="hidden md:table-cell">${e.salary}</TableCell>
-            <TableCellAction id={e.id} />
-          </TableRow>
-        )),
+        fakeTeachers.map((e, i) => {
+          const teacherPipe = TeacherPipe.transform(e);
+          //
+          return (
+            <TableRow key={i}>
+              <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
+              {/*  */}
+              <TableCell className="font-medium">
+                {teacherPipe.display_name}
+                <br />
+                <Badge variant="secondary" className="mt-1 text-xs_">
+                  {teacherPipe.teacher_number_f}
+                </Badge>
+              </TableCell>
+              <TableCell>{teacherPipe.date_of_birth_f}</TableCell>
+              <TableCell>{teacherPipe.national_id_f}</TableCell>
+              <TableCellHidden>$ {teacherPipe.salary_f}</TableCellHidden>
+              {/*  */}
+              <TableCellAction id={teacherPipe.id} />
+            </TableRow>
+          );
+        }),
       ]}
     </TableCardWrapper>
   );
