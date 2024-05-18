@@ -1,6 +1,6 @@
 export type TProps = Record<string, unknown>;
 
-export type TId = string | number;
+export type TPrimaryKey = string | number;
 
 export type TList = string[];
 
@@ -16,11 +16,7 @@ export type TButtonVariant =
   | "outline"
   | "secondary";
 
-export type TBadgeVariant =
-  | "default"
-  | "destructive"
-  | "outline"
-  | "secondary";
+export type TBadgeVariant = "default" | "destructive" | "outline" | "secondary";
 
 export enum EGender {
   M = "Male",
@@ -32,4 +28,3 @@ export type TGenderKeys = keyof typeof EGender;
 
 // "Male" | "Female"
 export type TGenderValues = `${EGender}`;
-

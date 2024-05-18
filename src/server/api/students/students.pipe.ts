@@ -11,7 +11,6 @@ export class StudentsPipe extends StudentsService {
       date_of_birth_f: this.dateOfBirth(student.date_of_birth),
       age: this.age(student.date_of_birth),
       national_id_f: this.nationalId(student.national_id),
-      student_number_f: this.studentNumber(student),
       created_at_f: this.createdAt(student.created_at),
     };
   }

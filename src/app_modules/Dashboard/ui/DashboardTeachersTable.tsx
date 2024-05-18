@@ -24,7 +24,7 @@ export const DashboardTeachersTable = ({ data }: { data: ITeacher[] }) => {
             {/*  */}
             <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>
             <TableCellBadge variant="secondary">
-              {teacherPipe.teacher_number_f}
+              {teacherPipe.teacher_number}
             </TableCellBadge>
             <TableCell>$ {teacherPipe.salary_f}</TableCell>
           </TableRow>

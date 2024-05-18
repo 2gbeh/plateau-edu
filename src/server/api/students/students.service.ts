@@ -18,9 +18,4 @@ export class StudentsService extends CommonService {
     let initials = abbr(other_names, true);
     return `${surname}, ${initials}`;
   }
-
-  // EDU/STU/123456
-  static studentNumber(student: IStudent) {
-    return `EDU/STU/${student.student_number}`;
-  }
 }

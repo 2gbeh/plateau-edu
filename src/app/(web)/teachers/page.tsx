@@ -1,4 +1,3 @@
-import { Badge } from "@/components/shadcn/ui/badge";
 import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { TableCardWrapper } from "@/components/table/ui/table-card-wrapper";
 import { TableCellAvatar } from "@/components/table/ui/table-cell-avatar";
@@ -7,7 +6,6 @@ import { TableCellAction } from "@/components/table/ui/table-cell-action";
 //
 import fakeTeachers from "@/data/fake-teachers";
 import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
-import { Card } from "@/components/shadcn/ui/card";
 import { TableCellBadge } from "@/components/table/ui/table-cell-bagde";
 import { TableCellStrong } from "@/components/table/ui/table-cell-strong";
 
@@ -43,7 +41,7 @@ export default function Teachers() {
               {/*  */}
               <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>
               <TableCellBadge variant="secondary">
-                {teacherPipe.teacher_number_f}
+                {teacherPipe.teacher_number}
               </TableCellBadge>
               <TableCellHidden>{teacherPipe.date_of_birth_f}</TableCellHidden>
               <TableCellHidden>{teacherPipe.national_id_f}</TableCellHidden>

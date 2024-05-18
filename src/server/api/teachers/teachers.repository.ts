@@ -1,6 +1,10 @@
 import { CommonRepository } from "@/server/common/common.repository";
-import { ITeacher } from "./teachers.dto";
+import fakeTeachers from "@/data/fake-teachers";
 
-export class TeachersRepository {
-  constructor(private readonly commonRepository: CommonRepository) {}
+export class TeachersRepository extends CommonRepository {
+  constructor() {
+    super(fakeTeachers);
+  }
 }
+
+export const teachersRepository = new TeachersRepository();
