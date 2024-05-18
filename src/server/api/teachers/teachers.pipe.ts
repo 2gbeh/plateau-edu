@@ -11,7 +11,6 @@ export class TeachersPipe extends TeachersService {
       date_of_birth_f: this.dateOfBirth(teacher.date_of_birth),
       age: this.age(teacher.date_of_birth),
       national_id_f: this.nationalId(teacher.national_id),
-      teacher_number_f: this.teacherNumber(teacher),
       salary_f: this.salary(teacher),
       created_at_f: this.createdAt(teacher.created_at),
     };

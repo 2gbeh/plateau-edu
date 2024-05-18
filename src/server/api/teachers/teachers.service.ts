@@ -22,11 +22,6 @@ export class TeachersService extends CommonService {
     return `${title} ${surname}, ${initials}`;
   }
 
-  // EDU/STA/123
-  static teacherNumber(teacher: ITeacher) {
-    return `EDU/STA/${teacher.teacher_number}`;
-  }
-
   static salary(teacher: ITeacher) {
     return teacher?.salary ? $(teacher.salary) : "0.00";
   }

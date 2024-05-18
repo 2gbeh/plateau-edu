@@ -1,7 +1,13 @@
+import { faker } from "@faker-js/faker";
 import { $, NAIRA, age } from "@/utils";
 import date from "@/utils/phpDateFormat";
 
 export class CommonService {
+  static uuid = () => faker.string.uuid();
+  static moid = () => faker.database.mongodbObjectId();
+  static datetime = () => new Date().toJSON();
+  static timestamp = () => new Date();
+
   // 1992 & 1992.00 & 1,992 & N 1,992
   static numberPipe(n: number) {
     return {

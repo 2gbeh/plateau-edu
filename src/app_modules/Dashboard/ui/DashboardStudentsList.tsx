@@ -24,7 +24,7 @@ export const DashboardStudentsList = ({ data }: { data: IStudent[] }) => {
               />
               <NamePlate
                 h1={studentPipe.display_name}
-                p={studentPipe.student_number_f}
+                p={studentPipe.student_number}
               />
               <div className="ml-auto text-sm">Age {studentPipe.age}</div>
             </div>

@@ -73,28 +73,32 @@ const Model = {
 };
 
 const Teacher = {
-  id: "1",
   avatar: "avatar",
   title: "title",
   surname: "surname",
   other_names: "otherNames",
   date_of_birth: "dateShort",
   national_id: () => FakerHelper.numbers(11),
-  teacher_number: () => FakerHelper.numbers(3),
+  teacher_number: () => `EDU/STA/${FakerHelper.numbers(3)}`,
   salary: () => FakerHelper.price(150000, 750000),
   created_at: "date",
+  updated_at: null,
+  deleted_at: null,
+  id: "1",
 };
 
 const Student = {
-  id: "1",
   avatar: "avatar",
   surname: "surname",
   other_names: "otherNames",
   date_of_birth: "dateShort",
   national_id: () => FakerHelper.numbers(11),
-  student_number: () => FakerHelper.numbers(6),
+  student_number: () => `EDU/STU/${FakerHelper.numbers(6)}`,
   created_at: "date",
+  updated_at: null,
+  deleted_at: null,
+  id: "1",
 };
 
-export default Teacher;
+export default Student;
 export const customSchemaSize = 10;

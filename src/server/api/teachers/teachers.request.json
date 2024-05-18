@@ -1,0 +1,14 @@
+{
+  "POST": {
+    "title": "Mr.",
+    "surname": "Tugbeh",
+    "other_names": "Emmanuel Osaretin",
+    "date_of_birth": "1992-09-15",
+    "national_id": "12345678901",
+    "teacher_number": "092",
+    "salary": 650000.00
+  },
+  "PATCH": {
+    "salary": 750000.00
+  }
+}
