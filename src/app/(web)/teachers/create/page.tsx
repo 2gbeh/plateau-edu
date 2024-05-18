@@ -55,18 +55,6 @@ export default function TeachersCreate() {
               name="date_of_birth"
               required
             />
-            {/* <FormInput
-              label="Email Address"
-              type="email"
-              name="email"
-              placeholder="Ex. example@domain.com"
-            />
-            <FormInput
-              label="Phone Number"
-              type="tel"
-              name="phone"
-              placeholder="Ex. (123) 456-7890"
-            /> */}
             <FormInputAmount label="Salary" names={["currency", "salary"]} />
           </FormInputGroup>
         </fieldset>
