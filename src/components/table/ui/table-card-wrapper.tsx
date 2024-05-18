@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/shadcn/ui/button";
 import {
   Card,
   CardContent,
@@ -14,23 +17,28 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/shadcn/ui/table";
+import { TableCardHeader } from "@/components/table/ui/table-card-header";
 
 interface IProps {
   children: React.ReactNode;
   h1?: string;
   p?: string;
+  a?: string;
   thead?: string[];
   tfoot?: React.ReactNode;
 }
 
-export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
+export const TableCardWrapper = ({
+  children,
+  h1,
+  p,
+  a,
+  thead,
+  tfoot,
+}: IProps) => {
   return (
-    <>
-      <CardHeader>
-        {h1 && <CardTitle>{h1}</CardTitle>}
-        {p && <CardDescription>{p}</CardDescription>}
-      </CardHeader>
-
+    <Card className="">
+      <TableCardHeader h1={h1} p={p} a={a} />
       {/* BODY */}
       <CardContent>
         <Table>
@@ -74,6 +82,6 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
           <div className="text-xs text-muted-foreground">{tfoot}</div>
         </CardFooter>
       )}
-    </>
+    </Card>
   );
 };
