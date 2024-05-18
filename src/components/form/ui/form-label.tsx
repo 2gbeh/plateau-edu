@@ -5,6 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/shadcn/ui/tooltip";
+import { Tiptoe } from "@/components/tiptoe";
 
 interface IProps {
   text: string;
@@ -31,16 +32,7 @@ export const FormLabel = ({ text, name }: IProps) => {
       {text_f}
 
       {/* TOOLTIP */}
-      {hasTooltip && (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <CircleHelp className="dim-3 text-gray-600 ml-1" />
-            </TooltipTrigger>
-            <TooltipContent>{tip}</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      )}
+      {hasTooltip && <Tiptoe text={tip} />}
 
       {/* REQUIRED */}
       {isRequired && <b className="text-red-500 ml-1">*</b>}

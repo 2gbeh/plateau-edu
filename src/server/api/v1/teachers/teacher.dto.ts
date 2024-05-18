@@ -1,5 +1,6 @@
-export interface ITeacher {
-  id: string;
+import { ICommon } from "@/server/common/common.dto";
+
+export interface ITeacher extends ICommon {
   avatar?: string;
   title: string;
   surname: string;
@@ -8,5 +9,4 @@ export interface ITeacher {
   national_id: string;
   teacher_number: string;
   salary?: number | string;
-  created_at: string | Date;
 }
