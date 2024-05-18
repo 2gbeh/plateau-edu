@@ -1,10 +1,3 @@
-import { CircleHelp } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/shadcn/ui/tooltip";
 import { Tiptoe } from "@/components/tiptoe";
 
 interface IProps {

@@ -7,7 +7,7 @@ import {
 } from "@/components/shadcn/ui/tooltip";
 
 interface IProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   text: string;
 }
 
