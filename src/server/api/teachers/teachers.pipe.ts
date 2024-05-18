@@ -1,7 +1,7 @@
-import { ITeacher } from "./teacher.dto";
-import { TeacherService } from "./teacher.service";
+import { ITeacher } from "./teachers.dto";
+import { TeachersService } from "./teachers.service";
 
-export class TeacherPipe extends TeacherService {
+export class TeachersPipe extends TeachersService {
   static transform(teacher: ITeacher) {
     return {
       ...teacher,

@@ -6,7 +6,7 @@ import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
 import { TableCellAction } from "@/components/table/ui/table-cell-action";
 //
 import fakeTeachers from "@/data/fake-teachers";
-import { TeacherPipe } from "@/server/resources/teachers/teacher.pipe";
+import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
 
 export const metadata = { title: "View Teachers" };
 
@@ -31,7 +31,7 @@ export default function Teachers() {
     >
       {[
         fakeTeachers.map((e, i) => {
-          const teacherPipe = TeacherPipe.transform(e);
+          const teacherPipe = TeachersPipe.transform(e);
           //
           return (
             <TableRow key={i}>

@@ -1,8 +1,8 @@
 import { $, abbr } from "@/utils";
 import { CommonService } from "@/server/common/common.service";
-import { ITeacher } from "./teacher.dto";
+import { ITeacher } from "./teachers.dto";
 
-export class TeacherService extends CommonService {
+export class TeachersService extends CommonService {
   static avgSalary(teachers: ITeacher[]) {
     let sumOfSalaries = teachers.reduce(
       (T, teacher) => T + Number(teacher.salary),
@@ -22,6 +22,7 @@ export class TeacherService extends CommonService {
     return `${title} ${surname}, ${initials}`;
   }
 
+  // EDU/STA/123
   static teacherNumber(teacher: ITeacher) {
     return `EDU/STA/${teacher.teacher_number}`;
   }

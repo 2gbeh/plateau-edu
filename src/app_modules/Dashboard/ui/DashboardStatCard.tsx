@@ -9,8 +9,8 @@ import {
 import { $ } from "@/utils";
 import fakeTeachers from "@/data/fake-teachers";
 import fakeStudents from "@/data/fake-students";
-import { TeacherService } from "@/server/resources/teachers/teacher.service";
-import { StudentService } from "@/server/resources/students/stdudent.service";
+import { TeachersService } from "@/server/api/teachers/teachers.service";
+import { StudentsService } from "@/server/api/students/students.service";
 
 export const DashboardStatCard = () => {
   return (
@@ -23,7 +23,7 @@ export const DashboardStatCard = () => {
         <CardContent>
           <div className="text-2xl font-bold">{$(fakeTeachers.length)}</div>
           <p className="text-xs text-muted-foreground">
-            Teacher average salary: $ {TeacherService.avgSalary(fakeTeachers)}
+            Teacher average salary: $ {TeachersService.avgSalary(fakeTeachers)}
           </p>
         </CardContent>
       </Card>
@@ -36,7 +36,7 @@ export const DashboardStatCard = () => {
         <CardContent>
           <div className="text-2xl font-bold">{$(fakeStudents.length)}</div>
           <p className="text-xs text-muted-foreground">
-            Student average age: {StudentService.avgAge(fakeStudents)}
+            Student average age: {StudentsService.avgAge(fakeStudents)}
           </p>
         </CardContent>
       </Card>
