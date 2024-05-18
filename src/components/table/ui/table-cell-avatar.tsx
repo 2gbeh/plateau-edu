@@ -17,7 +17,10 @@ export const TableCellAvatar = ({
   const [width, height] = [dim, dim];
   //
   return (
-    <TableCell className={required ? "table-cell" : "hidden sm:table-cell"}>
+    <TableCell
+      className={required ? "table-cell" : "hidden sm:table-cell"}
+      style={{ maxWidth: width, minWidth: width }}
+    >
       <Image
         src={src}
         alt={alt}

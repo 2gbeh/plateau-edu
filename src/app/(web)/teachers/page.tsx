@@ -7,6 +7,9 @@ import { TableCellAction } from "@/components/table/ui/table-cell-action";
 //
 import fakeTeachers from "@/data/fake-teachers";
 import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
+import { Card } from "@/components/shadcn/ui/card";
+import { TableCellBadge } from "@/components/table/ui/table-cell-bagde";
+import { TableCellStrong } from "@/components/table/ui/table-cell-strong";
 
 export const metadata = { title: "View Teachers" };
 
@@ -17,10 +20,11 @@ export default function Teachers() {
       p="List of registred teachers"
       thead={[
         "#Passport",
-        "Teacher Name/No.*",
-        "Date of Birth*",
-        "National ID*",
-        "Salary",
+        "Teacher Name*",
+        "Teacher Number",
+        "Date of Birth",
+        "National ID",
+        "Salary*",
         "#Action*",
       ]}
       tfoot={
@@ -37,16 +41,13 @@ export default function Teachers() {
             <TableRow key={i}>
               <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
               {/*  */}
-              <TableCell className="font-medium">
-                {teacherPipe.display_name}
-                <br />
-                <Badge variant="secondary" className="mt-1 text-xs_">
-                  {teacherPipe.teacher_number_f}
-                </Badge>
-              </TableCell>
-              <TableCell>{teacherPipe.date_of_birth_f}</TableCell>
-              <TableCell>{teacherPipe.national_id_f}</TableCell>
-              <TableCellHidden>$ {teacherPipe.salary_f}</TableCellHidden>
+              <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>
+              <TableCellBadge variant="secondary">
+                {teacherPipe.teacher_number_f}
+              </TableCellBadge>
+              <TableCellHidden>{teacherPipe.date_of_birth_f}</TableCellHidden>
+              <TableCellHidden>{teacherPipe.national_id_f}</TableCellHidden>
+              <TableCell>$ {teacherPipe.salary_f}</TableCell>
               {/*  */}
               <TableCellAction id={teacherPipe.id} />
             </TableRow>

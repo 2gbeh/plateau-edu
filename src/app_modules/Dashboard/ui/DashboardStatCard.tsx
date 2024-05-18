@@ -16,26 +16,26 @@ export const DashboardStatCard = () => {
   return (
     <div className="grid-1-2 gap-8">
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Teachers</CardTitle>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
+          <CardTitle className="text-sm_ font-medium">Total Teachers</CardTitle>
           <ContactRound className="dim-5" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{$(fakeTeachers.length)}</div>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Teacher average salary: $ {TeachersService.avgSalary(fakeTeachers)}
           </p>
         </CardContent>
       </Card>
       {/*  */}
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Students</CardTitle>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
+          <CardTitle className="text-sm_ font-medium">Total Students</CardTitle>
           <Users className="dim-5" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{$(fakeStudents.length)}</div>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Student average age: {StudentsService.avgAge(fakeStudents)}
           </p>
         </CardContent>

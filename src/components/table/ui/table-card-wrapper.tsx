@@ -25,7 +25,7 @@ interface IProps {
 
 export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
   return (
-    <>
+    <Card>
       <CardHeader>
         {h1 && <CardTitle>{h1}</CardTitle>}
         {p && <CardDescription>{p}</CardDescription>}
@@ -74,6 +74,6 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
           <div className="text-xs text-muted-foreground">{tfoot}</div>
         </CardFooter>
       )}
-    </>
+    </Card>
   );
 };
