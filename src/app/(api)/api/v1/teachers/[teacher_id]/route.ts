@@ -1,6 +1,6 @@
 import RouteHelper, { type NextRequest } from "@/server/helpers/RouteHelper";
 import { teachersRepository } from "@/server/api/teachers/teachers.repository";
-import { ITeacherRequestContext } from "@/server/api/teachers/teachers.dto";
+import { ITeacherRequestContext, UpdateTeacherDto } from "@/server/api/teachers/teachers.dto";
 
 // http://127.0.0.1:3000/api/v1/teachers/1
 export async function GET(_: NextRequest, context: ITeacherRequestContext) {
@@ -21,7 +21,7 @@ export async function PATCH(
   try {
     const { teacher_id } = context.params;
     const body = await request.json();
-    // const validated = productUpdateDto.parse(body);
+    // const validated = UpdateTeacherDto.parse(body);
     const document = teachersRepository.update(body, teacher_id);
     return RouteHelper.response(document);
   } catch (error) {

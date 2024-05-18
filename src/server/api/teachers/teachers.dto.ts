@@ -15,3 +15,4 @@ export interface ITeacherRequestContext {
 
 export type CreateTeacherDto = Omit<ITeacher, keyof ICommon>;
 
+export type UpdateTeacherDto = Partial<CreateTeacherDto>;
