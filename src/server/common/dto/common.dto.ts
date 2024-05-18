@@ -7,4 +7,6 @@ export interface ICommon {
   // uuid?: string;
 }
 
+
+
 export type readCommonDto = { id: number };

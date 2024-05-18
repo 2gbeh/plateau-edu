@@ -5,6 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcn/ui/card";
+//
+import { $ } from "@/utils";
+import fakeTeachers from "@/data/fake-teachers";
+import fakeStudents from "@/data/fake-students";
+import { TeacherService } from "@/server/resources/teachers/teacher.service";
+import { StudentService } from "@/server/resources/students/stdudent.service";
 
 export const DashboardStatCard = () => {
   return (
@@ -15,8 +21,10 @@ export const DashboardStatCard = () => {
           <ContactRound className="dim-5" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">1,509</div>
-          <p className="text-xs text-muted-foreground">+25% from last month</p>
+          <div className="text-2xl font-bold">{$(fakeTeachers.length)}</div>
+          <p className="text-xs text-muted-foreground">
+            Teacher average salary: $ {TeacherService.avgSalary(fakeTeachers)}
+          </p>
         </CardContent>
       </Card>
       {/*  */}
@@ -26,8 +34,10 @@ export const DashboardStatCard = () => {
           <Users className="dim-5" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">1,992</div>
-          <p className="text-xs text-muted-foreground">+25% from last month</p>
+          <div className="text-2xl font-bold">{$(fakeStudents.length)}</div>
+          <p className="text-xs text-muted-foreground">
+            Student average age: {StudentService.avgAge(fakeStudents)}
+          </p>
         </CardContent>
       </Card>
     </div>

@@ -6,7 +6,7 @@ import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
 import { TableCellAction } from "@/components/table/ui/table-cell-action";
 //
 import fakeTeachers from "@/data/fake-teachers";
-import { TeacherPipe } from "@/server/api/v1/teachers/teacher.pipe";
+import { TeacherPipe } from "@/server/resources/teachers/teacher.pipe";
 
 export const metadata = { title: "View Teachers" };
 

@@ -3,7 +3,7 @@ import date from "@/utils/phpDateFormat";
 
 export class CommonService {
   // 1992 & 1992.00 & 1,992 & N 1,992
-  static number(n: number) {
+  static numberPipe(n: number) {
     return {
       asInteger: n,
       asFloat: n.toFixed(2),
@@ -13,33 +13,30 @@ export class CommonService {
   }
 
   static avatar(avatar: string | undefined) {
-    return { avatar_f: avatar || "/images/avatar-flat.png" };
+    return avatar || "/images/avatar-flat.png";
   }
 
   static fullName(surname: string, other_names: string) {
-    return { full_name: `${surname} ${other_names}` };
+    return `${surname} ${other_names}`;
   }
 
   // Sep 15, 1992
   static dateOfBirth(date_of_birth: string | Date) {
-    return {
-      date_of_birth_f: date(date_of_birth as string, "M j, Y") as string,
-    };
+    return date(date_of_birth as string, "M j, Y") as string;
   }
 
   static age(date_of_birth: string | Date) {
-    return { age: age(date_of_birth) };
+    return age(date_of_birth);
   }
 
   // 21-77362408-8
   static nationalId(national_id: string) {
     let [ab, z] = [national_id.slice(0, 2), national_id.slice(-1)];
-    let rest = national_id.slice(2, 10);
-    return { national_id_f: `${ab}-${rest}-${z}` };
+    return `${ab}-${national_id.slice(2, 10)}-${z}`;
   }
 
   // 21-77362408-8
   static createdAt(created_at: string | Date) {
-    return { created_at_f: date(created_at as string, "M j") as string };
+    return date(created_at as string, "M j") as string;
   }
 }
