@@ -1,45 +1,12 @@
-import Image from "next/image";
-import { MoreHorizontal } from "lucide-react";
 import { Badge } from "@/components/shadcn/ui/badge";
-import { Button } from "@/components/shadcn/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/shadcn/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/shadcn/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/shadcn/ui/table";
+import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { TableCardWrapper } from "@/components/table/ui/table-card-wrapper";
-
-/*
-● Title - required can be either [Mr, Mrs, Miss, Dr, Prof]
-Surname - required
-Other Names - required
-National ID number - required field
-
-● Date of Birth - required - their age may not be less than 21
-● Teacher Number - required
-
-Salary - optional 
-Email - 
-Phone No. - 
-*/
+import { TableCellAvatar } from "@/components/table/ui/table-cell-avatar";
+import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
+import { TableCellAction } from "@/components/table/ui/table-cell-action";
+//
+import fakeTeachers from "@/data/fake-teachers";
+import { TeacherPipe } from "@/server/api/v1/teachers/teacher.pipe";
 
 export const metadata = { title: "View Teachers" };
 
@@ -50,229 +17,42 @@ export default function Teachers() {
       p="List of registred teachers"
       thead={[
         "#Passport",
-        "Teacher Name*",
+        "Teacher Name/No.*",
         "Date of Birth*",
-        "Teacher Number*",
+        "National ID*",
         "Salary",
-        "Date Created",
         "#Action*",
       ]}
       tfoot={
-        <>
+        <span>
           Showing <strong>1-10</strong> of <strong>32</strong> records
-        </>
+        </span>
       }
     >
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">Mr. Laser Lemonade <br/>1</TableCell>
-        <TableCell>
-          <Badge variant="outline">Draft</Badge>
-        </TableCell>
-        <TableCell>$499.99</TableCell>
-        <TableCell className="hidden md:table-cell">25</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2023-07-12 10:42 AM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">Hypernova Headphones</TableCell>
-        <TableCell>
-          <Badge variant="outline">Active</Badge>
-        </TableCell>
-        <TableCell>$129.99</TableCell>
-        <TableCell className="hidden md:table-cell">100</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2023-10-18 03:21 PM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">AeroGlow Desk Lamp</TableCell>
-        <TableCell>
-          <Badge variant="outline">Active</Badge>
-        </TableCell>
-        <TableCell>$39.99</TableCell>
-        <TableCell className="hidden md:table-cell">50</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2023-11-29 08:15 AM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">TechTonic Energy Drink</TableCell>
-        <TableCell>
-          <Badge variant="secondary">Draft</Badge>
-        </TableCell>
-        <TableCell>$2.99</TableCell>
-        <TableCell className="hidden md:table-cell">0</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2023-12-25 11:59 PM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">Gamer Gear Pro Controller</TableCell>
-        <TableCell>
-          <Badge variant="outline">Active</Badge>
-        </TableCell>
-        <TableCell>$59.99</TableCell>
-        <TableCell className="hidden md:table-cell">75</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2024-01-01 12:00 AM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className="hidden sm:table-cell">
-          <Image
-            alt="Product image"
-            className="aspect-square rounded-md object-cover"
-            height="32"
-            src="/images/avatar-flat.png"
-            width="32"
-          />
-        </TableCell>
-        <TableCell className="font-medium">Luminous VR Headset</TableCell>
-        <TableCell>
-          <Badge variant="outline">Active</Badge>
-        </TableCell>
-        <TableCell>$199.99</TableCell>
-        <TableCell className="hidden md:table-cell">30</TableCell>
-        <TableCell className="hidden md:table-cell">
-          2024-02-14 02:14 PM
-        </TableCell>
-        <TableCell>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button aria-haspopup="true" size="icon" variant="ghost">
-                <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </TableCell>
-      </TableRow>
+      {[
+        fakeTeachers.map((e, i) => {
+          const teacherPipe = TeacherPipe.transform(e);
+          //
+          return (
+            <TableRow key={i}>
+              <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
+              {/*  */}
+              <TableCell className="font-medium">
+                {teacherPipe.display_name}
+                <br />
+                <Badge variant="secondary" className="mt-1 text-xs_">
+                  {teacherPipe.teacher_number_f}
+                </Badge>
+              </TableCell>
+              <TableCell>{teacherPipe.date_of_birth_f}</TableCell>
+              <TableCell>{teacherPipe.national_id_f}</TableCell>
+              <TableCellHidden>$ {teacherPipe.salary_f}</TableCellHidden>
+              {/*  */}
+              <TableCellAction id={teacherPipe.id} />
+            </TableRow>
+          );
+        }),
+      ]}
     </TableCardWrapper>
   );
 }

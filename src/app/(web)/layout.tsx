@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "@/components/header";
 
-export default function WebLayout({
+export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

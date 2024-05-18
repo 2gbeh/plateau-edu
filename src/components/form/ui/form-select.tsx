@@ -18,13 +18,13 @@ export const FormSelect = ({
   name,
   placeholder,
   options,
-  ...rest
+  ...props
 }: IProps) => {
   return (
     <div className={formStyles.input_group}>
       <FormLabel text={label} name={name} />
       {/*  */}
-      <select name={name} id={name} {...rest} className={formStyles.input}>
+      <select name={name} id={name} {...props} className={formStyles.input}>
         <option value="null" hidden>
           {placeholder ?? ""}
         </option>

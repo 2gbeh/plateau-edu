@@ -6,7 +6,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   name: string;
 }
 
-export const FormTextarea = ({ label, name, ...rest }: IProps) => {
+export const FormTextarea = ({ label, name, ...props }: IProps) => {
   return (
     <div className={formStyles.input_group}>
       <FormLabel text={label} name={name} />
@@ -15,7 +15,7 @@ export const FormTextarea = ({ label, name, ...rest }: IProps) => {
         rows={4}
         name={name}
         id={name}
-        {...rest}
+        {...props}
         className={formStyles.input}
       ></textarea>
     </div>

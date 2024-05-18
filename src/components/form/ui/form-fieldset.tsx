@@ -2,9 +2,9 @@ interface IProps extends React.InputHTMLAttributes<HTMLFormElement> {
   children: React.ReactNode;
 }
 
-export const FormFieldset = ({ children, ...rest }: IProps) => {
+export const FormFieldset = ({ children, ...props }: IProps) => {
   return (
-    <form {...rest}>
+    <form {...props}>
       <fieldset disabled={false} className="flex flex-col gap-4">
         {children}
       </fieldset>

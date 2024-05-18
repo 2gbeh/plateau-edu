@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import {
   Card,
   CardContent,
@@ -31,7 +30,7 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
         {h1 && <CardTitle>{h1}</CardTitle>}
         {p && <CardDescription>{p}</CardDescription>}
       </CardHeader>
-      
+
       {/* BODY */}
       <CardContent>
         <Table>
@@ -50,9 +49,9 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
                   return (
                     <TableHead
                       key={i}
-                      className={clsx({
-                        "hidden md:table-cell": !isRequired,
-                      })}
+                      className={
+                        isRequired ? "table-cell" : "hidden sm:table-cell"
+                      }
                     >
                       {isScreenReader ? (
                         <span className="sr-only">{text}</span>
@@ -68,7 +67,7 @@ export const TableCardWrapper = ({ children, h1, p, thead, tfoot }: IProps) => {
           <TableBody>{children}</TableBody>
         </Table>
       </CardContent>
-      
+
       {/* FOOTER */}
       {tfoot && (
         <CardFooter>

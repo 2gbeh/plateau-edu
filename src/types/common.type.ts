@@ -8,13 +8,28 @@ export type TDocument = Record<string, unknown>;
 
 export type TCollection = TDocument[];
 
-enum EGender {
+export type TButtonVariant =
+  | "default"
+  | "destructive"
+  | "ghost"
+  | "link"
+  | "outline"
+  | "secondary";
+
+export type TBadgeVariant =
+  | "default"
+  | "destructive"
+  | "outline"
+  | "secondary";
+
+export enum EGender {
   M = "Male",
   F = "Female",
 }
 
 // "M" | "F"
-type TGenderKeys = keyof typeof EGender;
+export type TGenderKeys = keyof typeof EGender;
 
 // "Male" | "Female"
-type TGenderValues = `${EGender}`;
+export type TGenderValues = `${EGender}`;
+
