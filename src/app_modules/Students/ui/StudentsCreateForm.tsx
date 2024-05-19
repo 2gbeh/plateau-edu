@@ -8,10 +8,10 @@ import { FormLabel } from "@/components/form/ui/form-label";
 import { FormError } from "@/components/form/ui/form-error";
 //
 import { TitleEnumAsArray } from "@/server/enums/TitleEnum";
-import { TeacherSchemaKey } from "@/server/api/teachers/teacher.shema";
-import { useAddTeacher } from "@/hooks/useAddTeacher";
+import { StudentSchemaKey } from "@/server/api/students/student.shema";
+import { useAddStudent } from "@/hooks/useAddStudent";
 
-const TeachersCreateForm = () => {
+const StudentsCreateForm = () => {
   const {
     control,
     errors,
@@ -22,12 +22,12 @@ const TeachersCreateForm = () => {
     reset,
     //
     handlePost,
-  } = useAddTeacher();
+  } = useAddStudent();
   //
   return (
     <FormWrapper
-      h1="Add Teacher"
-      p="Teacher biodata caption form"
+      h1="Add Student"
+      p="Student biodata caption form"
       onSubmit={handleSubmit(handlePost)}
       disabled={isSubmitting}
     >
@@ -43,48 +43,26 @@ const TeachersCreateForm = () => {
               required
               className={formUtil.styles.input}
             />
-            <FormError error={errors[name as TeacherSchemaKey]} />
+            <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
-        {["teacher_number"].map((name) => (
+        {["student_number"].map((name) => (
           <FormGroup key={name}>
-            <FormLabel text="Teacher Number?Staff ID*" id={name} />
+            <FormLabel text="Student Number?Staff ID*" id={name} />
             <input
               {...register(name as any)}
               type="search"
               id={name}
-              placeholder="Ex. EDU/STA/015"
+              placeholder="Ex. EDU/STU/015"
               required
               className={formUtil.styles.input}
             />
-            <FormError error={errors[name as TeacherSchemaKey]} />
+            <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
       </FormGrid>
       {/* //////////////////////////////////////////////////////////// */}
       <FormGrid>
-        {["title"].map((name) => (
-          <FormGroup key={name}>
-            <FormLabel text="Title*" id={name} />
-            <select
-              {...register(name as any)}
-              id={name}
-              defaultValue="Mr./Mrs./Miss"
-              required
-              className={formUtil.styles.input}
-            >
-              <option>Mr./Mrs./Miss</option>
-              {TitleEnumAsArray?.map((option) => {
-                return (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                );
-              })}
-            </select>
-            <FormError error={errors[name as TeacherSchemaKey]} />
-          </FormGroup>
-        ))}
         {["surname"].map((name) => (
           <FormGroup key={name}>
             <FormLabel text="Surname*" id={name} />
@@ -95,7 +73,7 @@ const TeachersCreateForm = () => {
               required
               className={formUtil.styles.input}
             />
-            <FormError error={errors[name as TeacherSchemaKey]} />
+            <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
         {["other_names"].map((name) => (
@@ -107,7 +85,7 @@ const TeachersCreateForm = () => {
               required
               className={formUtil.styles.input}
             />
-            <FormError error={errors[name as TeacherSchemaKey]} />
+            <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
       </FormGrid>
@@ -123,21 +101,7 @@ const TeachersCreateForm = () => {
               required
               className={formUtil.styles.input}
             />
-            <FormError error={errors[name as TeacherSchemaKey]} />
-          </FormGroup>
-        ))}
-        {["salary"].map((name) => (
-          <FormGroup key={name}>
-            <FormLabel text="Salary" id={name} />
-            <input
-              {...register(name as any)}
-              type="number"
-              id={name}
-              placeholder="0.00"
-              required
-              className={formUtil.styles.input}
-            />
-            <FormError error={errors[name as TeacherSchemaKey]} />
+            <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
       </FormGrid>
@@ -145,4 +109,4 @@ const TeachersCreateForm = () => {
   );
 };
 
-export default React.memo(TeachersCreateForm);
+export default React.memo(StudentsCreateForm);

@@ -7,12 +7,12 @@ import FetchHelper from "@/server/helpers/FetchHelper";
 import { zzz } from "@/utils";
 //
 import {
-  TeacherSchema,
-  TeacherSchemaDefaultValues,
-} from "@/server/api/teachers/teacher.shema";
-import { CreateTeacherDto } from "@/server/api/teachers/teachers.dto";
+  StudentSchema,
+  StudentSchemaDefaultValues,
+} from "@/server/api/students/student.shema";
+import { CreateStudentDto } from "@/server/api/students/students.dto";
 
-export function useCreateTeacher() {
+export function useAddStudent() {
   const {
     control,
     formState: { errors, isSubmitting },
@@ -23,14 +23,14 @@ export function useCreateTeacher() {
     handleSubmit,
     reset,
   } = useForm({
-    resolver: zodResolver(TeacherSchema),
-    defaultValues: TeacherSchemaDefaultValues,
+    resolver: zodResolver(StudentSchema),
+    defaultValues: StudentSchemaDefaultValues,
   });
 
-  const handlePost: SubmitHandler<CreateTeacherDto> = async (formData) => {
-    M.teachers_create && console.log("🚀 ~ formData:", formData);
+  const handlePost: SubmitHandler<CreateStudentDto> = async (formData) => {
+    // console.log("🚀 ~ formData:", formData);
     // return
-    let res = await FetchHelper.store(R.teachers, formData);
+    let res = await FetchHelper.store(R.students, formData);
     if (res.success) {
       alert(res.data.id);
       reset();

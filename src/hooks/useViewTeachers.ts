@@ -8,8 +8,9 @@ import { TPrimaryKey } from "@/types/common.type";
 import fakeTeachers from "@/data/fake-teachers";
 import { ITeacher } from "@/server/api/teachers/teachers.dto";
 
-export function useFetchTeachers() {
+export function useViewTeachers() {
   const [data, setData] = useState<null | ITeacher[]>(null);
+  const [fetching, isFetching] = useState(false);
 
   const handleDelete = async (id: TPrimaryKey) => {
     let res = await FetchHelper.destroy(R.teachers, id);
