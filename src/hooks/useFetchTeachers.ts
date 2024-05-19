@@ -4,32 +4,43 @@ import R from "@/server/routes";
 import FetchHelper from "@/server/helpers/FetchHelper";
 import { zzz } from "@/utils";
 //
+import { TPrimaryKey } from "@/types/common.type";
 import fakeTeachers from "@/data/fake-teachers";
 import { ITeacher } from "@/server/api/teachers/teachers.dto";
 
 export function useFetchTeachers() {
   const [data, setData] = useState<null | ITeacher[]>(null);
 
-  const onMount = async () => {
-    let raw = await fetch(R.teachers);
-    let res = await raw.json();
+  const handleDelete = async (id: TPrimaryKey) => {
+    let res = await FetchHelper.destroy(R.teachers, id);
     if (res.success) {
-      setData(res.data);
+      alert(res.data.avatar);
+      handleGet();
     } else {
-      setData([]);
+      alert(res.message);
     }
   };
 
-  const mockOnMount = async () => {
-    await zzz();
-    setData(fakeTeachers);
+  const handleGet = async () => {
+    if (M.teachers) {
+      await zzz();
+      setData(fakeTeachers);
+    } else {
+      let res = await FetchHelper.index(R.teachers);
+      if (res.success) {
+        setData(res.data);
+      } else {
+        setData([]);
+      }
+    }
   };
 
   useEffect(() => {
-    M.teachers ? mockOnMount() : onMount();
+    handleGet();
   }, []);
 
   return {
     data,
+    handleDelete,
   };
 }

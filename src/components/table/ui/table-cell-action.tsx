@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { MoreHorizontal } from "lucide-react";
 import { TableCell } from "@/components/shadcn/ui/table";
 import {
@@ -8,12 +11,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn/ui/dropdown-menu";
 import { Button } from "@/components/shadcn/ui/button";
+// 
+import { TPrimaryKey } from "@/types/common.type";
 
 interface IProps {
-  id: number | string;
+  id: TPrimaryKey;
+  actions?: Record<string, (id: TPrimaryKey) => void>[];
 }
 
-export const TableCellAction = ({ id }: IProps) => {
+const TableCellAction = ({ id, actions }: IProps) => {
   return (
     <TableCell>
       <DropdownMenu>
@@ -25,10 +31,21 @@ export const TableCellAction = ({ id }: IProps) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Delete</DropdownMenuItem>
+          {actions?.map((e, i) => {
+            let [text, handleClick] = [
+              Object.keys(e).pop(),
+              Object.values(e).pop(),
+            ];
+            return (
+              <DropdownMenuItem key={i} onClick={() => handleClick!(id)}>
+                {text}
+              </DropdownMenuItem>
+            );
+          })}
         </DropdownMenuContent>
       </DropdownMenu>
     </TableCell>
   );
 };
+
+export default React.memo(TableCellAction);

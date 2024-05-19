@@ -1,18 +1,17 @@
 import Image from "next/image";
-import clsx from "clsx";
 
 interface IProps {
   src: string;
   dim: [number, number];
-  fit?: string;
+  as?: string;
   alt?: string;
   styles?: string;
 }
 
-export const Figure = ({ src, dim, fit, alt = "", styles }: IProps) => {
+export const Figure = ({ src, dim, as, alt = "", styles }: IProps) => {
   const [width, height] = dim;
   return (
-    <figure style={{ width: fit }}>
+    <figure style={{ width: as }}>
       <Image
         src={src}
         alt={alt}

@@ -30,11 +30,9 @@ export function useCreateTeacher() {
   const handlePost: SubmitHandler<CreateTeacherDto> = async (formData) => {
     M.teachers_create && console.log("🚀 ~ formData:", formData);
     // return
-    let raw = await fetch(R.teachers, FetchHelper.post(formData));
-    let res = await raw.json();
+    let res = await FetchHelper.store(R.teachers, formData);
     if (res.success) {
-      alert("OK");
-      console.log(res.data);
+      alert(res.data.id);
       reset();
     } else {
       alert(res.message);

@@ -10,7 +10,7 @@ export default Object.freeze({
   profile: 0,
   settings: 0,
   //
-  teachers: 1,
+  teachers: 0,
   teacher: 0,
   teachers_create: 1,
   students: 1,

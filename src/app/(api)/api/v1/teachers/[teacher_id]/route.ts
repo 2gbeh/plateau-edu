@@ -1,6 +1,9 @@
 import RouteHelper, { type NextRequest } from "@/server/helpers/RouteHelper";
 import { teachersRepository } from "@/server/api/teachers/teachers.repository";
-import { ITeacherRequestContext, UpdateTeacherDto } from "@/server/api/teachers/teachers.dto";
+import {
+  ITeacherRequestContext,
+  UpdateTeacherDto,
+} from "@/server/api/teachers/teachers.dto";
 
 // http://127.0.0.1:3000/api/v1/teachers/1
 export async function GET(_: NextRequest, context: ITeacherRequestContext) {
@@ -38,16 +41,23 @@ export async function PUT(
 }
 
 // http://127.0.0.1:3000/api/v1/teachers/1
-// http://127.0.0.1:3000/api/v1/teachers/1?undo=true
-export async function DELETE(request: NextRequest, context: ITeacherRequestContext) {
+// http://127.0.0.1:3000/api/v1/teachers/1?trash=true
+// http://127.0.0.1:3000/api/v1/teachers/1?restore=true
+export async function DELETE(
+  request: NextRequest,
+  context: ITeacherRequestContext
+) {
   try {
     const { teacher_id } = context.params;
     const url = new URL(request.url);
-    const queryUndo = url.searchParams.get("undo");
+    const queryTrash = url.searchParams.get("trash");
+    const queryRestore = url.searchParams.get("restore");
     //
-    const document = RouteHelper.hasQuery(queryUndo)
+    const document = RouteHelper.hasQuery(queryTrash)
+      ? teachersRepository.trash(teacher_id)
+      : RouteHelper.hasQuery(queryRestore)
       ? teachersRepository.restore(teacher_id)
-      : teachersRepository.trash(teacher_id);
+      : teachersRepository.delete(teacher_id);
     return RouteHelper.response(document);
   } catch (error) {
     return RouteHelper.response(error, 404);

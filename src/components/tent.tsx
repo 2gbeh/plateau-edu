@@ -25,7 +25,7 @@ export const Tent = ({ status, message, variant, action }: IProps) => {
   return (
     <main className="offwhite flex-centered">
       <div className="flex-col-center gap-4 px-5 w-full sm:w-[640px] mx-auto">
-        <Figure src="/icon.png" dim={[256, 256]} fit="64px" alt={APP.name} />
+        <Figure src="/icon.png" dim={[256, 256]} as="64px" alt={APP.name} />
         {/*  */}
         <h1 className="capitalize">
           <b>{status}</b> | {getStatusText(status)}
