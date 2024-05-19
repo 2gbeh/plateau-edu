@@ -12,6 +12,16 @@ export default class ZodHelper {
       .trim()
       .min(min, `${label} must be at least ${min} char(s) long.`);
 
+  static reqStrOnly = (label: string, min = 2) =>
+    z
+      .string({
+        required_error: `${label} is required.`,
+        invalid_type_error: `${label} can not be numeric.`,
+      })
+      .regex(/^[A-Za-z]+$/i, `${label} must contain only alphabets.`)
+      .trim()
+      .min(min, `${label} must be at least ${min} char(s) long.`);
+
   static optNum = (label: string) =>
     z.coerce
       .number({
@@ -32,7 +42,7 @@ export default class ZodHelper {
       errorMap: (issue, { defaultError }) => ({
         message:
           issue.code === "invalid_enum_value"
-            ? `${label} is required, select one option.`
+            ? `${label} is required, select a valid option.`
             : issue.code,
       }),
     });

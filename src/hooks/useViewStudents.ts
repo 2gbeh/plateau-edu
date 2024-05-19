@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useOptimisticDelete } from "./useOptimisticDelete";
 import M from "@/constants/MOCK";
 import R from "@/server/routes";
 import FetchHelper from "@/server/helpers/FetchHelper";
@@ -10,11 +11,10 @@ import { IStudent } from "@/server/api/students/students.dto";
 
 export function useViewStudents() {
   const [data, setData] = useState<null | IStudent[]>(null);
-  const [fetching, isFetching] = useState(false);
-  const [toBeDeleted, setToBeDeleted] = useState<TPrimaryKey>("");
+  const { isToBeDeleted, toggleToBeDeleted } = useOptimisticDelete();
 
   const handleDelete = async (id: TPrimaryKey) => {
-    setToBeDeleted(id);
+    toggleToBeDeleted(id);
     //
     let res = await FetchHelper.destroy(R.students, id);
     if (res.success) {
@@ -24,7 +24,7 @@ export function useViewStudents() {
       alert(res.message);
     }
     //
-    setToBeDeleted("");
+    toggleToBeDeleted();
   };
 
   const handleGet = async () => {
@@ -48,6 +48,6 @@ export function useViewStudents() {
   return {
     data,
     handleDelete,
-    toBeDeleted,
+    isToBeDeleted,
   };
 }

@@ -134,7 +134,6 @@ const TeachersCreateForm = () => {
               type="number"
               id={name}
               placeholder="0.00"
-              required
               className={formUtil.styles.input}
             />
             <FormError error={errors[name as TeacherSchemaKey]} />

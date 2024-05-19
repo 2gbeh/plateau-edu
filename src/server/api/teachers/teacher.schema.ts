@@ -6,8 +6,8 @@ import M from "@/constants/MOCK";
 
 export const TeacherSchema = z.object({
   title: zh.reqEnum("Title", TitleEnum),
-  surname: zh.reqStr("Surname"),
-  other_names: zh.reqStr("Other Names"),
+  surname: zh.reqStrOnly("Surname"),
+  other_names: zh.reqStrOnly("Other Names"),
   date_of_birth: zh.minYrs("Date of Birth", 21),
   national_id: zh.reqChar("National ID"),
   teacher_number: zh.reqFmt("Teacher Number", "EDU/STA/"),

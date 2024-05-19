@@ -16,7 +16,7 @@ import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
 import { useViewTeachers } from "@/hooks/useViewTeachers";
 
 const TeachersTable = () => {
-  const { data, handleDelete, toBeDeleted } = useViewTeachers();
+  const { data, handleDelete, isToBeDeleted } = useViewTeachers();
   //
   return (
     <>
@@ -26,10 +26,7 @@ const TeachersTable = () => {
             const teacherPipe = TeachersPipe.transform(e);
             //
             return (
-              <TableRow
-                key={i}
-                className={clsx({ "bg-red-50 cursor-progress": toBeDeleted == e.id })}
-              >
+              <TableRow key={i} className={clsx(isToBeDeleted(e.id))}>
                 <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
                 {/*  */}
                 <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>

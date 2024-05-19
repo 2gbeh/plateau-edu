@@ -4,8 +4,8 @@ import { zh } from "@/server/helpers/ZodHelper";
 import M from "@/constants/MOCK";
 
 export const StudentSchema = z.object({
-  surname: zh.reqStr("Surname"),
-  other_names: zh.reqStr("Other Names"),
+  surname: zh.reqStrOnly("Surname"),
+  other_names: zh.reqStrOnly("Other Names"),
   date_of_birth: zh.maxYrs("Date of Birth", 22),
   national_id: zh.reqChar("National ID"),
   student_number: zh.reqFmt("Student Number", "EDU/STU/", 14),
