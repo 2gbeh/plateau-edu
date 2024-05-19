@@ -1,4 +1,4 @@
-export default class RequestHelper {
+export default class FetchHelper {
 
   static post = <T>(payload: T) => ({
     method: "POST",

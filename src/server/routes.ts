@@ -1,9 +1,11 @@
+// import R from "@/server/routes";
+
 const baseURL = "/api/v1";
 
-export const R = {
+export default Object.freeze({
   ping: "/api",
 
   teachers: baseURL + "/teachers",
 
   students: baseURL + "/students",
-} as const;
+});

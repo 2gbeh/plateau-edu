@@ -8,10 +8,10 @@ import { FormLabel } from "@/components/form/ui/form-label";
 import { FormError } from "@/components/form/ui/form-error";
 //
 import { TitleEnumAsArray } from "@/server/enums/TitleEnum";
-import { useCreateTeacherForm } from "@/hooks/useCreateTeacherForm";
 import { TeacherSchemaKey } from "@/server/api/teachers/teacher.shema";
+import { useCreateTeacher } from "@/hooks/useCreateTeacher";
 
-const CreateTeacherForm = () => {
+const TeachersCreateForm = () => {
   const {
     control,
     errors,
@@ -21,15 +21,15 @@ const CreateTeacherForm = () => {
     handleSubmit,
     reset,
     //
-    createTeacher,
-  } = useCreateTeacherForm();
+    handlePost,
+  } = useCreateTeacher();
   //
   return (
     <FormWrapper
       h1="Add Teacher"
       p="Teacher biodata caption form"
-      onSubmit={handleSubmit(createTeacher)}
-      disabled={true}
+      onSubmit={handleSubmit(handlePost)}
+      disabled={isSubmitting}
     >
       {/* //////////////////////////////////////////////////////////// */}
       <FormGrid>
@@ -73,7 +73,7 @@ const CreateTeacherForm = () => {
               required
               className={formUtil.styles.input}
             >
-              <option selected>Mr./Mrs./Miss</option>
+              <option>Mr./Mrs./Miss</option>
               {TitleEnumAsArray?.map((option) => {
                 return (
                   <option key={option} value={option}>
@@ -145,4 +145,4 @@ const CreateTeacherForm = () => {
   );
 };
 
-export default React.memo(CreateTeacherForm);
+export default React.memo(TeachersCreateForm);

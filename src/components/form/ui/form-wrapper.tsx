@@ -51,7 +51,7 @@ export const FormWrapper = ({
           Save
           {disabled && (
             <i className="ml-1.5">
-              <Loading size={24} />
+              <Spinner size={20} />
             </i>
           )}
         </Button>

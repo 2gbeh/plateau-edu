@@ -1,20 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useRouter } from "next/navigation";
-//
+import { zodResolver } from "@hookform/resolvers/zod";
+import M from "@/constants/MOCK";
+import R from "@/server/routes";
+import FetchHelper from "@/server/helpers/FetchHelper";
 import { zzz } from "@/utils";
-import { R } from "@/server/routes";
-import RequestHelper from "@/server/helpers/RequestHelper";
+//
 import {
   TeacherSchema,
   TeacherSchemaDefaultValues,
 } from "@/server/api/teachers/teacher.shema";
 import { CreateTeacherDto } from "@/server/api/teachers/teachers.dto";
-import { zodResolver } from "@hookform/resolvers/zod";
-import M from "@/constants/MOCK";
 
-export function useCreateTeacherForm() {
-  const router = useRouter();
+export function useCreateTeacher() {
   const {
     control,
     formState: { errors, isSubmitting },
@@ -29,10 +27,10 @@ export function useCreateTeacherForm() {
     defaultValues: TeacherSchemaDefaultValues,
   });
 
-  const createTeacher: SubmitHandler<CreateTeacherDto> = async (formData) => {
-    console.log("🚀 ~ constcreateTeacher:SubmitHandler<CreateTeacherDto>= ~ formData:", formData, errors)
-    return
-    let raw = await fetch(R.teachers, RequestHelper.post(formData));
+  const handlePost: SubmitHandler<CreateTeacherDto> = async (formData) => {
+    M.teachers_create && console.log("🚀 ~ formData:", formData);
+    // return
+    let raw = await fetch(R.teachers, FetchHelper.post(formData));
     let res = await raw.json();
     if (res.success) {
       alert("OK");
@@ -52,6 +50,6 @@ export function useCreateTeacherForm() {
     handleSubmit,
     reset,
     //
-    createTeacher,
+    handlePost,
   };
 }
