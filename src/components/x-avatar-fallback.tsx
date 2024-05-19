@@ -10,7 +10,7 @@ interface IProps {
   username?: string;
   alt?: string;
 }
-export const AvatarFb = ({
+export const XAvatarFallback = ({
   src = "/avatars/01.png",
   username = "Not Available",
   alt = "",

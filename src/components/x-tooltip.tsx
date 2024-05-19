@@ -11,7 +11,7 @@ interface IProps {
   text: string;
 }
 
-export const Tiptop = ({ children, text }: IProps) => {
+export const XTooltip = ({ children, text }: IProps) => {
   return (
     <TooltipProvider>
       <Tooltip>

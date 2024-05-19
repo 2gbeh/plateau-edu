@@ -13,6 +13,13 @@ import {
 import { CreateTeacherDto } from "@/server/api/teachers/teachers.dto";
 
 export function useAddTeacher() {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal((prev) => !prev);
+  const [dialog, setDialog] = useState({
+    h1: "Record Created",
+    p: "Visit the View Teachers page to see newly added records.",
+    success: true,
+  });
   const {
     control,
     formState: { errors, isSubmitting },
@@ -32,11 +39,15 @@ export function useAddTeacher() {
     // return
     let res = await FetchHelper.store(R.teachers, formData);
     if (res.success) {
-      alert(res.data.id);
       reset();
     } else {
-      alert(res.message);
+      setDialog({
+        h1: "Server Error",
+        p: JSON.stringify(res.message),
+        success: false,
+      });
     }
+    toggleModal();
   };
 
   return {
@@ -49,5 +60,8 @@ export function useAddTeacher() {
     reset,
     //
     handlePost,
+    dialog,
+    showModal,
+    toggleModal,
   };
 }

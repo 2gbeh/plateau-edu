@@ -1,4 +1,4 @@
-import { Tiptop } from "@/components/tiptop";
+import { XTooltip } from "@/components/x-tooltip";
 
 interface IProps {
   text: string;
@@ -25,7 +25,7 @@ export const FormLabel = ({ text, id }: IProps) => {
       {text_f}
 
       {/* TOOLTIP */}
-      {hasTooltip && <Tiptop text={tip} />}
+      {hasTooltip && <XTooltip text={tip} />}
 
       {/* REQUIRED */}
       {isRequired && <b className="text-red-500 ml-1">*</b>}

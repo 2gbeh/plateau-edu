@@ -2,16 +2,16 @@ import Image from "next/image";
 
 interface IProps {
   src: string;
-  dim: [number, number];
-  as?: string;
+  dimension: [number, number];
+  figureWidth?: string;
   alt?: string;
   styles?: string;
 }
 
-export const Figure = ({ src, dim, as, alt = "", styles }: IProps) => {
-  const [width, height] = dim;
+export const Figure = ({ src, dimension, figureWidth, alt = "", styles }: IProps) => {
+  const [width, height] = dimension;
   return (
-    <figure style={{ width: as }}>
+    <figure style={{ width: figureWidth }}>
       <Image
         src={src}
         alt={alt}

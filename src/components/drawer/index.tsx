@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { Home, ContactRound, Users, Menu } from "lucide-react";
@@ -15,7 +16,7 @@ import { useActiveLink } from "@/hooks/useActiveLink";
 import APP from "@/constants/APP";
 import { menu } from "./drawer.util";
 
-export const Drawer = () => {
+const Drawer = () => {
   const { isActiveLink } = useActiveLink();
   //
   return (
@@ -32,7 +33,12 @@ export const Drawer = () => {
             href="/"
             className="flex items-center gap-2 text-lg font-semibold"
           >
-            <Figure src="/icon.png" dim={[256, 256]} as="40px" alt={APP.name} />
+            <Figure
+              src="/icon.png"
+              dimension={[256, 256]}
+              figureWidth="40px"
+              alt={APP.name}
+            />
           </Link>
           {/*  */}
           {menu.map((e, i) => {
@@ -63,3 +69,5 @@ export const Drawer = () => {
     </Sheet>
   );
 };
+
+export default React.memo(Drawer);

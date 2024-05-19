@@ -13,6 +13,13 @@ import {
 import { CreateStudentDto } from "@/server/api/students/students.dto";
 
 export function useAddStudent() {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal((prev) => !prev);
+  const [dialog, setDialog] = useState({
+    h1: "Record Created",
+    p: "Visit the View Students page to see newly added records.",
+    success: true,
+  });
   const {
     control,
     formState: { errors, isSubmitting },
@@ -32,11 +39,16 @@ export function useAddStudent() {
     // return
     let res = await FetchHelper.store(R.students, formData);
     if (res.success) {
-      alert(res.data.id);
       reset();
     } else {
       alert(res.message);
+      setDialog({
+        h1: "Server Error",
+        p: JSON.stringify(res.message),
+        success: false,
+      });
     }
+    toggleModal();
   };
 
   return {
@@ -49,5 +61,8 @@ export function useAddStudent() {
     reset,
     //
     handlePost,
+    dialog,
+    showModal,
+    toggleModal,
   };
 }

@@ -1,20 +1,29 @@
-import React from "react";
 import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { Figure } from "@/components/figure";
 
 interface IProps {
-  text?: string;
+  caption?: string;
+  minHeight?: number;
+  imageSize?: string;
 }
 
-export const TableCellNoData = ({ text = "No records found" }: IProps) => {
+export const TableCellNoData = ({
+  caption = "No records found",
+  minHeight = 300,
+  imageSize = "100px",
+}: IProps) => {
   return (
     <TableRow>
       <TableCell></TableCell>
       <TableCell colSpan={6}>
-        <div className=" min-h-[300px] flex-center-center">
+        <div className="flex-center-center" style={{ minHeight: minHeight }}>
           <figure className="flex flex-col gap-2 items-center">
-            <Figure src="/images/no-search.png" dim={[160, 160]} as="100px" />
-            <figcaption>{text}</figcaption>
+            <Figure
+              src="/images/no-search.png"
+              dimension={[160, 160]}
+              figureWidth={imageSize}
+            />
+            <figcaption className="text-gray-500">{caption}</figcaption>
           </figure>
         </div>
       </TableCell>

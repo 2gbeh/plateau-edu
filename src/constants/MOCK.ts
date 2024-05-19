@@ -12,8 +12,8 @@ export default Object.freeze({
   //
   teachers: 0,
   teacher: 0,
-  teachers_create: 1,
+  teachers_create: 0,
   students: 0,
   student: 0,
-  students_create: 1,
+  students_create: 0,
 });
