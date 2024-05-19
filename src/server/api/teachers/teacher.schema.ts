@@ -1,5 +1,5 @@
 import { Control, UseFormRegister, FieldErrors } from "react-hook-form";
-import { z } from "zod";
+import { z, ZodError } from "zod";
 import { zh } from "@/server/helpers/ZodHelper";
 import { TitleEnum } from "@/server/enums/TitleEnum";
 import M from "@/constants/MOCK";

@@ -1,5 +1,6 @@
 import { ApiError } from "next/dist/server/api-utils";
 import { NextResponse } from "next/server";
+import { ZodError } from "zod";
 
 export { type NextRequest } from "next/server";
 
@@ -11,6 +12,11 @@ export default class RouteHelper {
 
   static response(result: unknown, status = 200) {
     const isSuccess = status < 400;
+
+    // thrown from zod validation
+    if (result instanceof ZodError) {
+      result = result.formErrors;
+    }
 
     // thrown from repository
     if (result instanceof ApiError) {
