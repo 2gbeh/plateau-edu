@@ -17,11 +17,6 @@ export default function Teachers() {
         "Salary*",
         "#Action*",
       ]}
-      tfoot={
-        <span>
-          Showing <strong>1-10</strong> of <strong>10</strong> records
-        </span>
-      }
     >
       <TeachersTable />
     </TableCardWrapper>

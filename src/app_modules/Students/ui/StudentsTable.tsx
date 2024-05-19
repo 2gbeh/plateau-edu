@@ -7,37 +7,36 @@ import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
 import { TableCellBadge } from "@/components/table/ui/table-cell-bagde";
 import { TableCellStrong } from "@/components/table/ui/table-cell-strong";
 import { TableCellFooter } from "@/components/table/ui/table-cell-footer";
-import { TeachersTableFallback } from "./TeachersTableFallback";
+import { StudentsTableFallback } from "./StudentsTableFallback";
 import { TableCellNoData } from "@/components/table/ui/table-cell-no-data";
 import TableCellAction from "@/components/table/ui/table-cell-action";
 //
-import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
-import { useViewTeachers } from "@/hooks/useViewTeachers";
+import { StudentsPipe } from "@/server/api/students/students.pipe";
+import { useViewStudents } from "@/hooks/useViewStudents";
 
-const TeachersTable = () => {
-  const { data, handleDelete } = useViewTeachers();
+const StudentsTable = () => {
+  const { data, handleDelete } = useViewStudents();
   //
   return (
     <>
       {data ? (
         data.length > 0 ? (
           data.map((e, i) => {
-            const teacherPipe = TeachersPipe.transform(e);
+            const studentPipe = StudentsPipe.transform(e);
             //
             return (
               <TableRow key={i}>
-                <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
+                <TableCellAvatar src={studentPipe.avatar_f} alt="Avatar" />
                 {/*  */}
-                <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>
+                <TableCellStrong>{studentPipe.display_name}</TableCellStrong>
                 <TableCellBadge variant="secondary">
-                  {teacherPipe.teacher_number}
+                  {studentPipe.student_number}
                 </TableCellBadge>
-                <TableCellHidden>{teacherPipe.date_of_birth_f}</TableCellHidden>
-                <TableCellHidden>{teacherPipe.national_id_f}</TableCellHidden>
-                <TableCell>$ {teacherPipe.salary_f}</TableCell>
+                <TableCell>{studentPipe.date_of_birth_f}</TableCell>
+                <TableCellHidden>{studentPipe.national_id_f}</TableCellHidden>
                 {/*  */}
                 <TableCellAction
-                  id={teacherPipe.id}
+                  id={studentPipe.id}
                   actions={[{ Delete: handleDelete }]}
                 />
               </TableRow>
@@ -47,7 +46,7 @@ const TeachersTable = () => {
           <TableCellNoData />
         )
       ) : (
-        <TeachersTableFallback n={5} />
+        <StudentsTableFallback n={5} />
       )}
       {/*  */}
       <TableCellFooter span={6} total={data?.length} />
@@ -55,4 +54,4 @@ const TeachersTable = () => {
   );
 };
 
-export default React.memo(TeachersTable);
+export default React.memo(StudentsTable);

@@ -15,7 +15,7 @@ interface IProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   as: [string | undefined, string];
 }
 
-export const ImageFallback = ({ as, ...props }: IProps) => {
+export const ImageFb = ({ as, ...props }: IProps) => {
   const [status, setStatus] = useState(false);
   const [image, fallback] = as;
   useEffect(() => {

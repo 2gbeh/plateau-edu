@@ -1,9 +1,7 @@
 import RouteHelper, { type NextRequest } from "@/server/helpers/RouteHelper";
 import { studentsRepository } from "@/server/api/students/students.repository";
-import {
-  IStudentRequestContext,
-  UpdateStudentDto,
-} from "@/server/api/students/students.dto";
+import { StudentSchema } from "@/server/api/students/student.schema";
+import { IStudentRequestContext } from "@/server/api/students/students.dto";
 
 // http://127.0.0.1:3000/api/v1/students/1
 export async function GET(_: NextRequest, context: IStudentRequestContext) {
@@ -24,8 +22,8 @@ export async function PATCH(
   try {
     const { student_id } = context.params;
     const body = await request.json();
-    // const validated = UpdateStudentDto.parse(body);
-    const document = studentsRepository.update(body, student_id);
+    const validated = StudentSchema.partial().parse(body);
+    const document = studentsRepository.update(validated, student_id);
     return RouteHelper.response(document);
   } catch (error) {
     return RouteHelper.response(error, 404);
@@ -41,7 +39,8 @@ export async function PUT(
 }
 
 // http://127.0.0.1:3000/api/v1/students/1
-// http://127.0.0.1:3000/api/v1/students/1?undo=true
+// http://127.0.0.1:3000/api/v1/students/1?trash=true
+// http://127.0.0.1:3000/api/v1/students/1?restore=true
 export async function DELETE(
   request: NextRequest,
   context: IStudentRequestContext
@@ -49,11 +48,14 @@ export async function DELETE(
   try {
     const { student_id } = context.params;
     const url = new URL(request.url);
-    const queryUndo = url.searchParams.get("undo");
+    const queryTrash = url.searchParams.get("trash");
+    const queryRestore = url.searchParams.get("restore");
     //
-    const document = RouteHelper.hasQuery(queryUndo)
+    const document = RouteHelper.hasQuery(queryTrash)
+      ? studentsRepository.trash(student_id)
+      : RouteHelper.hasQuery(queryRestore)
       ? studentsRepository.restore(student_id)
-      : studentsRepository.trash(student_id);
+      : studentsRepository.delete(student_id);
     return RouteHelper.response(document);
   } catch (error) {
     return RouteHelper.response(error, 404);

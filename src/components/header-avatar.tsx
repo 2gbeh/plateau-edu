@@ -17,7 +17,7 @@ export const HeaderAvatar = () => {
           <Figure
             src="/images/etugbeh.png"
             dim={[1033, 1034]}
-            fit="32px"
+            as="32px"
             alt="Toggle user menu"
             styles="rounded-full"
           />
