@@ -1,4 +1,5 @@
 # PlateauEdu
+
 PlateauMed - Senior Frontend Engineer Assessment
 
 [![React](https://img.shields.io/badge/React-18.x-087ea4.svg)](https://react.dev/learn/installation)
@@ -10,6 +11,7 @@ PlateauMed - Senior Frontend Engineer Assessment
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 ## Setup
+
 ```bash
 $ git clone https://github.com/2gbeh/plateau-edu.git
 
@@ -23,9 +25,15 @@ $ npm run dev
 ```
 
 ## Usage
+
 > Local: http://localhost:3000/
 
 > Live: https://plateau-edu.vercel.app/
 
 ## Screenshot
+
 ![Screenshot](./public/social-preview.png)
+
+## Resources
+
+[Interview Question](./public/todo.pdf)
