@@ -1,14 +1,15 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
 import {
   ChevronLeftCircleIcon as BackIcon,
   RefreshCw as RetryIcon,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { getStatusText } from "@/constants/HTTP_STATUS_CODE";
 import { Figure } from "./figure";
+// 
 import APP from "@/constants/APP";
+import { getStatusText } from "@/constants/HTTP_STATUS_CODE";
 
 interface IProps {
   status: number;
@@ -17,7 +18,7 @@ interface IProps {
   action?: () => void;
 }
 
-export const Tent = ({ status, message, variant, action }: IProps) => {
+const Tent = ({ status, message, variant, action }: IProps) => {
   const pathname = usePathname();
   const router = useRouter();
   let messageSlice = message.split("%s");
@@ -61,3 +62,5 @@ export const Tent = ({ status, message, variant, action }: IProps) => {
     </main>
   );
 };
+
+export default React.memo(Tent);

@@ -1,5 +1,5 @@
 import Navbar from "./navbar";
-import { Drawer } from "./drawer";
+import Drawer from "./drawer";
 import { SearchBar } from "./search-bar";
 import { HeaderAvatar } from "./header-avatar";
 

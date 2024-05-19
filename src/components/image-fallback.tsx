@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 /* USAGE 
   <ImageFallback
@@ -15,7 +15,7 @@ interface IProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   as: [string | undefined, string];
 }
 
-export const ImageFallback = ({ as, ...props }: IProps) => {
+const ImageFallback = ({ as, ...props }: IProps) => {
   const [status, setStatus] = useState(false);
   const [image, fallback] = as;
   useEffect(() => {
@@ -24,3 +24,5 @@ export const ImageFallback = ({ as, ...props }: IProps) => {
   //
   return <img {...props} src={status && image ? image : fallback} />;
 };
+
+export default React.memo(ImageFallback);

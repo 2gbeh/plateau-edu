@@ -1,5 +1,6 @@
 "use client";
 
+// CLIENT PAGE FOR TESTING
 import React, { useState } from "react";
 import { Button } from "@/components/shadcn/ui/button";
 import fakerHelper from "@/lib/faker-js/main";

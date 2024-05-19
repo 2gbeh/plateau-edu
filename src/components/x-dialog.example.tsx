@@ -4,7 +4,7 @@ import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
-const XDialog = () => {
+const XDialogExample = () => {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
   //
@@ -90,4 +90,4 @@ const XDialog = () => {
   );
 };
 
-export default React.memo(XDialog);
+export default React.memo(XDialogExample);
