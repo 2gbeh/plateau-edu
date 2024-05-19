@@ -29,8 +29,9 @@ export function useDashboard() {
       } else {
         setDataTeachers([]);
       }
+      // 
       if (resStudents.success) {
-        setDataTeachers(resStudents.data);
+        setDataStudents(resStudents.data);
       } else {
         setDataStudents([]);
       }

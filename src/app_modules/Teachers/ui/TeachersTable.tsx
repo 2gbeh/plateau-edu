@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 import { TableCell, TableRow } from "@/components/shadcn/ui/table";
 import { TableCellAvatar } from "@/components/table/ui/table-cell-avatar";
 import { TableCellHidden } from "@/components/table/ui/table-cell-hidden";
@@ -15,7 +16,7 @@ import { TeachersPipe } from "@/server/api/teachers/teachers.pipe";
 import { useViewTeachers } from "@/hooks/useViewTeachers";
 
 const TeachersTable = () => {
-  const { data, handleDelete } = useViewTeachers();
+  const { data, handleDelete, toBeDeleted } = useViewTeachers();
   //
   return (
     <>
@@ -25,7 +26,10 @@ const TeachersTable = () => {
             const teacherPipe = TeachersPipe.transform(e);
             //
             return (
-              <TableRow key={i}>
+              <TableRow
+                key={i}
+                className={clsx({ "bg-red-50 cursor-progress": toBeDeleted == e.id })}
+              >
                 <TableCellAvatar src={teacherPipe.avatar_f} alt="Avatar" />
                 {/*  */}
                 <TableCellStrong>{teacherPipe.display_name}</TableCellStrong>

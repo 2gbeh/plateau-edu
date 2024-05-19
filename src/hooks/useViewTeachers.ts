@@ -11,8 +11,11 @@ import { ITeacher } from "@/server/api/teachers/teachers.dto";
 export function useViewTeachers() {
   const [data, setData] = useState<null | ITeacher[]>(null);
   const [fetching, isFetching] = useState(false);
+  const [toBeDeleted, setToBeDeleted] = useState<TPrimaryKey>("");
 
   const handleDelete = async (id: TPrimaryKey) => {
+    setToBeDeleted(id);
+    //
     let res = await FetchHelper.destroy(R.teachers, id);
     if (res.success) {
       alert(res.data.avatar);
@@ -20,6 +23,8 @@ export function useViewTeachers() {
     } else {
       alert(res.message);
     }
+    //
+    setToBeDeleted("");
   };
 
   const handleGet = async () => {
@@ -43,5 +48,6 @@ export function useViewTeachers() {
   return {
     data,
     handleDelete,
+    toBeDeleted,
   };
 }

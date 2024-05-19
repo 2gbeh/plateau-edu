@@ -6,7 +6,7 @@ export default Object.freeze({
   reset_password: 0,
   verify_email: 0,
   //
-  dashboard: 1,
+  dashboard: 0,
   profile: 0,
   settings: 0,
   //

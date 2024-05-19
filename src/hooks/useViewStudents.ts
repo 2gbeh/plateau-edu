@@ -11,8 +11,11 @@ import { IStudent } from "@/server/api/students/students.dto";
 export function useViewStudents() {
   const [data, setData] = useState<null | IStudent[]>(null);
   const [fetching, isFetching] = useState(false);
+  const [toBeDeleted, setToBeDeleted] = useState<TPrimaryKey>("");
 
   const handleDelete = async (id: TPrimaryKey) => {
+    setToBeDeleted(id);
+    //
     let res = await FetchHelper.destroy(R.students, id);
     if (res.success) {
       alert(res.data.avatar);
@@ -20,6 +23,8 @@ export function useViewStudents() {
     } else {
       alert(res.message);
     }
+    //
+    setToBeDeleted("");
   };
 
   const handleGet = async () => {
@@ -43,5 +48,6 @@ export function useViewStudents() {
   return {
     data,
     handleDelete,
+    toBeDeleted,
   };
 }
