@@ -28,3 +28,9 @@ export type TGenderKeys = keyof typeof EGender;
 
 // "Male" | "Female"
 export type TGenderValues = `${EGender}`;
+
+export type TDialog = {
+  h1: string;
+  p: string;
+  success: boolean;
+};
