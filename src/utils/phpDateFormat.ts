@@ -19,7 +19,7 @@ export default function phpDateFormat(
   // 1992-09-15T12:00:00.000Z
   const dt =
     datetime && datetime.toString().length >= 10
-      ? datetime
+      ? new Date(datetime).toJSON()
       : new Date().toJSON();
   const date = new Date(dt);
   // ///////////////////////////////////////////////////////////

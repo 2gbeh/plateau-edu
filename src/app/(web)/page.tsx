@@ -20,10 +20,10 @@ export default function Dashboard() {
       {/*  */}
       <div className="grid-1-6 gap-10 mt-6">
         <div className="col-span-4">
-          <DashboardTeachersTable data={fakeTeachers.slice(0, 5)} />
+          <DashboardTeachersTable data={fakeTeachers.slice(9)} />
         </div>
         <div className="sm:col-span-2 col-span-4">
-          <DashboardStudentsList data={fakeStudents.slice(0, 5)} />
+          <DashboardStudentsList data={fakeStudents.slice(8)} />
         </div>
       </div>
     </Heading>
