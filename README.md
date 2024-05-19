@@ -36,4 +36,4 @@ $ npm run dev
 
 ## Resources
 
-[Interview Question](./public/todo.pdf)
+* [Interview Question](./public/todo.pdf)
