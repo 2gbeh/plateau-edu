@@ -6,14 +6,14 @@ export default Object.freeze({
   reset_password: 0,
   verify_email: 0,
   //
-  dashboard: 0,
+  dashboard: 1,
   profile: 0,
   settings: 0,
   //
   teachers: 0,
   teacher: 0,
-  teachers_create: 1,
+  teachers_create: 0,
   students: 0,
   student: 0,
-  students_create: 1,
+  students_create: 0,
 });

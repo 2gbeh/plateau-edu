@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 /* USAGE 
   <ImageFallback
-  as={["https://github.com/2gbeh.png", "/images/avatar-flat.png"]}
+  figureWidth={["https://github.com/2gbeh.png", "/images/avatar-flat.png"]}
   alt="Account"
   title="GitHub"
   className="min-w-10 min-h-10 max-w-10 max-h-10 rounded-full"

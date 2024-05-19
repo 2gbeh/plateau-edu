@@ -16,8 +16,8 @@ export const HeaderAvatar = () => {
         <Button variant="secondary" size="icon" className="rounded-full">
           <Figure
             src="/images/etugbeh.png"
-            dim={[1033, 1034]}
-            as="32px"
+            dimension={[1033, 1034]}
+            figureWidth="32px"
             alt="Toggle user menu"
             styles="rounded-full"
           />

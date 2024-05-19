@@ -19,7 +19,12 @@ const Navbar = () => {
         href="/"
         className="flex items-center gap-2 text-lg font-semibold md:text-base"
       >
-        <Figure src="/icon.png" dim={[256, 256]} as="40px" alt={APP.name} />
+        <Figure
+          src="/icon.png"
+          dimension={[256, 256]}
+          figureWidth="40px"
+          alt={APP.name}
+        />
       </Link>
       {/*  */}
       {menu.map((e, i) => {
