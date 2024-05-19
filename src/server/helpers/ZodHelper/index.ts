@@ -12,13 +12,13 @@ export default class ZodHelper {
       .trim()
       .min(min, `${label} must be at least ${min} char(s) long.`);
 
-  static reqStrOnly = (label: string, min = 2) =>
+  static reqName = (label: string, min = 2) =>
     z
       .string({
         required_error: `${label} is required.`,
         invalid_type_error: `${label} can not be numeric.`,
       })
-      .regex(/^[A-Za-z -]+$/i, `${label} must contain only alphabets.`)
+      .regex(/^[A-Za-z -]+$/i, `${label} should contain only alphabets, spaces or hyphens.`)
       .trim()
       .min(min, `${label} must be at least ${min} char(s) long.`);
 

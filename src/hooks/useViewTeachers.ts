@@ -18,10 +18,10 @@ export function useViewTeachers() {
     //
     let res = await FetchHelper.destroy(R.teachers, id);
     if (res.success) {
-      alert(res.data.avatar);
+      // alert(res.data.avatar);
       handleGet();
     } else {
-      alert(res.message);
+      // alert(res.message);
     }
     //
     toggleToBeDeleted();

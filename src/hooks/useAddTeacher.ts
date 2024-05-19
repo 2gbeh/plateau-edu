@@ -41,7 +41,11 @@ export function useAddTeacher() {
     if (res.success) {
       reset();
     } else {
-      setDialog({ h1: "Server Error", p: res.message, success: false });
+      setDialog({
+        h1: "Server Error",
+        p: JSON.stringify(res.message),
+        success: false,
+      });
     }
     toggleModal();
   };

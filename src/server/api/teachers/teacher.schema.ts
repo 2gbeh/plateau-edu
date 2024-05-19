@@ -6,8 +6,8 @@ import M from "@/constants/MOCK";
 
 export const TeacherSchema = z.object({
   title: zh.reqEnum("Title", TitleEnum),
-  surname: zh.reqStrOnly("Surname"),
-  other_names: zh.reqStrOnly("Other Names"),
+  surname: zh.reqName("Surname"),
+  other_names: zh.reqName("Other Names"),
   date_of_birth: zh.minYrs("Date of Birth", 21),
   national_id: zh.reqChar("National ID"),
   teacher_number: zh.reqFmt("Teacher Number", "EDU/STA/"),
@@ -16,7 +16,10 @@ export const TeacherSchema = z.object({
 
 export type TeacherSchemaType = z.infer<typeof TeacherSchema>;
 export type TeacherSchemaKey = keyof TeacherSchemaType;
-export type TeacherSchemaFormControl = Control<Required<TeacherSchemaType>, any>;
+export type TeacherSchemaFormControl = Control<
+  Required<TeacherSchemaType>,
+  any
+>;
 export type TeacherSchemaFormRegister = UseFormRegister<TeacherSchemaType>;
 export type TeacherSchemaFieldErrors = FieldErrors<TeacherSchemaType>;
 
