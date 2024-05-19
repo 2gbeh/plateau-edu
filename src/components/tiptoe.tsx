@@ -15,7 +15,7 @@ export const Tiptoe = ({ children, text }: IProps) => {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger asChild>
           {children || <CircleHelp className="dim-3 text-gray-600 ml-1" />}
         </TooltipTrigger>
         <TooltipContent>{text}</TooltipContent>
