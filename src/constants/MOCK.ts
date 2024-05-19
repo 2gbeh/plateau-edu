@@ -13,7 +13,7 @@ export default Object.freeze({
   teachers: 0,
   teacher: 0,
   teachers_create: 1,
-  students: 1,
+  students: 0,
   student: 0,
   students_create: 1,
 });

@@ -8,7 +8,7 @@ export const StudentSchema = z.object({
   other_names: zh.reqStr("Other Names"),
   date_of_birth: zh.maxYrs("Date of Birth", 22),
   national_id: zh.reqChar("National ID"),
-  student_number: zh.reqFmt("Student Number", "EDU/STU/"),
+  student_number: zh.reqFmt("Student Number", "EDU/STU/", 14),
 });
 
 export type StudentSchemaType = z.infer<typeof StudentSchema>;
