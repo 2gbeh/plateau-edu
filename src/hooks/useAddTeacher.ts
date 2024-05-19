@@ -9,7 +9,7 @@ import { zzz } from "@/utils";
 import {
   TeacherSchema,
   TeacherSchemaDefaultValues,
-} from "@/server/api/teachers/teacher.shema";
+} from "@/server/api/teachers/teacher.schema";
 import { CreateTeacherDto } from "@/server/api/teachers/teachers.dto";
 
 export function useAddTeacher() {

@@ -9,7 +9,7 @@ import { zzz } from "@/utils";
 import {
   StudentSchema,
   StudentSchemaDefaultValues,
-} from "@/server/api/students/student.shema";
+} from "@/server/api/students/student.schema";
 import { CreateStudentDto } from "@/server/api/students/students.dto";
 
 export function useAddStudent() {

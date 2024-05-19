@@ -8,7 +8,7 @@ import { FormLabel } from "@/components/form/ui/form-label";
 import { FormError } from "@/components/form/ui/form-error";
 //
 import { TitleEnumAsArray } from "@/server/enums/TitleEnum";
-import { TeacherSchemaKey } from "@/server/api/teachers/teacher.shema";
+import { TeacherSchemaKey } from "@/server/api/teachers/teacher.schema";
 import { useAddTeacher } from "@/hooks/useAddTeacher";
 
 const TeachersCreateForm = () => {

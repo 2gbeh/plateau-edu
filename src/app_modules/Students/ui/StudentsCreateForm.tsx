@@ -8,7 +8,7 @@ import { FormLabel } from "@/components/form/ui/form-label";
 import { FormError } from "@/components/form/ui/form-error";
 //
 import { TitleEnumAsArray } from "@/server/enums/TitleEnum";
-import { StudentSchemaKey } from "@/server/api/students/student.shema";
+import { StudentSchemaKey } from "@/server/api/students/student.schema";
 import { useAddStudent } from "@/hooks/useAddStudent";
 
 const StudentsCreateForm = () => {
@@ -48,7 +48,7 @@ const StudentsCreateForm = () => {
         ))}
         {["student_number"].map((name) => (
           <FormGroup key={name}>
-            <FormLabel text="Student Number?Staff ID*" id={name} />
+            <FormLabel text="Student Number?Student ID*" id={name} />
             <input
               {...register(name as any)}
               type="search"
@@ -88,9 +88,6 @@ const StudentsCreateForm = () => {
             <FormError error={errors[name as StudentSchemaKey]} />
           </FormGroup>
         ))}
-      </FormGrid>
-      {/* //////////////////////////////////////////////////////////// */}
-      <FormGrid>
         {["date_of_birth"].map((name) => (
           <FormGroup key={name}>
             <FormLabel text="Date of Birth*" id={name} />

@@ -1,9 +1,7 @@
 import RouteHelper, { type NextRequest } from "@/server/helpers/RouteHelper";
 import { studentsRepository } from "@/server/api/students/students.repository";
-import {
-  IStudentRequestContext,
-  UpdateStudentDto,
-} from "@/server/api/students/students.dto";
+import { StudentSchema } from "@/server/api/students/student.schema";
+import { IStudentRequestContext } from "@/server/api/students/students.dto";
 
 // http://127.0.0.1:3000/api/v1/students/1
 export async function GET(_: NextRequest, context: IStudentRequestContext) {
@@ -24,8 +22,8 @@ export async function PATCH(
   try {
     const { student_id } = context.params;
     const body = await request.json();
-    // const validated = UpdateStudentDto.parse(body);
-    const document = studentsRepository.update(body, student_id);
+    const validated = StudentSchema.partial().parse(body);
+    const document = studentsRepository.update(validated, student_id);
     return RouteHelper.response(document);
   } catch (error) {
     return RouteHelper.response(error, 404);
