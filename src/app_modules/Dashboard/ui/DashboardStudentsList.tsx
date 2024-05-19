@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/shadcn/ui/card";
-import { AvatarFb } from "@/components/avatar-fb";
+import { XAvatarFallback } from "@/components/x-avatar-fallback";
 import { NamePlate } from "@/components/name-plate";
 import { TableCardHeader } from "@/components/table/ui/table-card-header";
 import { DashboardStudentsListFallback } from "./DashboardStudentsListFallback";
@@ -26,7 +26,7 @@ export const DashboardStudentsList = ({
               //
               return (
                 <div key={i} className="flex items-end gap-4">
-                  <AvatarFb
+                  <XAvatarFallback
                     src={studentPipe.avatar_f}
                     username={studentPipe.full_name}
                   />
