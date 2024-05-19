@@ -32,7 +32,12 @@ export class CommonRepository {
   search(query: TDocument) {
     let key = Object.keys(query).shift();
     let value = Object.values(query).shift();
-    return this.data.find((document) => document[key as string] == value);
+    return this.data.find(
+      (document) =>
+        (document[key as string] as string).search(
+          new RegExp(value as string, "i")
+        ) > -1
+    );
   }
 
   update(payload: TDocument, id: TPrimaryKey) {

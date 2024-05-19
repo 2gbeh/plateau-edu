@@ -4,11 +4,11 @@
     "surname": "Tugbeh",
     "other_names": "Emmanuel Osaretin",
     "date_of_birth": "1992-09-15",
-    "national_id": "12345678901",
-    "teacher_number": "092",
-    "salary": 650000.00
+    "national_id": "08169960927",
+    "teacher_number": "EDU/STA/159",
+    "salary": 650000
   },
   "PATCH": {
-    "salary": 750000.00
+    "salary": 750000
   }
 }

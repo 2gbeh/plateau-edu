@@ -2,10 +2,10 @@ import { Tiptoe } from "@/components/tiptoe";
 
 interface IProps {
   text: string;
-  name?: string;
+  id?: string;
 }
 
-export const FormLabel = ({ text, name }: IProps) => {
+export const FormLabel = ({ text, id }: IProps) => {
   let [tip, text_f, isRequired, hasTooltip] = [
     "",
     text,
@@ -19,7 +19,7 @@ export const FormLabel = ({ text, name }: IProps) => {
   //
   return (
     <label
-      htmlFor={name}
+      htmlFor={id}
       className="text-sm mb-2 px-1 font-semibold_ flex-center"
     >
       {text_f}

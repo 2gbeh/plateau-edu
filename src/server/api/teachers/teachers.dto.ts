@@ -13,6 +13,6 @@ export interface ITeacherRequestContext {
   };
 }
 
-export type CreateTeacherDto = Omit<ITeacher, keyof ICommon>;
+export type CreateTeacherDto = Omit<ITeacher, keyof ICommon | "avatar">;
 
 export type UpdateTeacherDto = Partial<CreateTeacherDto>;

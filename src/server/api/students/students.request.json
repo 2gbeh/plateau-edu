@@ -1,0 +1,13 @@
+{
+  "POST": {
+    "surname": "Ehiaghe",
+    "other_names": "Sandra",
+    "date_of_birth": "1995-11-15",
+    "national_id": "07066157335",
+    "student_number": "EDU/STU/151195"
+  },
+  "PATCH": {
+    "surname": "Tugbeh",
+    "other_names": "Sandra Ehiaghe"
+  }
+}
