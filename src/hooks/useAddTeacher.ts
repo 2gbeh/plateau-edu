@@ -20,6 +20,7 @@ export function useAddTeacher() {
     p: "Visit the View Teachers page to see newly added records.",
     success: true,
   });
+
   const {
     control,
     formState: { errors, isSubmitting },
