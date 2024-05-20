@@ -22,6 +22,23 @@ export default class FetchHelper {
     return await raw.json();
   }
 
+  static async show(path: string, id: unknown) {
+    let raw = await fetch(`${path}/${id}`, {
+      ...this.headers,
+      method: "GET",
+    });
+    return await raw.json();
+  }
+
+  static async update(path: string, id: unknown, payload: unknown) {
+    let raw = await fetch(`${path}/${id}`, {
+      ...this.headers,
+      method: "PATCH",
+      body: JSON.stringify(payload),
+    });
+    return await raw.json();
+  }
+
   static async destroy(path: string, id: unknown) {
     let raw = await fetch(`${path}/${id}`, {
       ...this.headers,

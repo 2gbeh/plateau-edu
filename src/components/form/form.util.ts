@@ -1,5 +1,5 @@
 export const styles = {
-  input: "border px-2 py-2 rounded text-sm text-gray-500",
+  input: "border px-2 py-2 rounded text-sm text-gray-500 w-full bg-white",
   input_amount_select:
     "border border-r-0 px-2 py-2 rounded rounded-r-none text-sm text-gray-500",
   input_amount_input:
